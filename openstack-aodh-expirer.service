@@ -1,0 +1,12 @@
+[Unit]
+Description=OpenStack Alarm expirer service
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=aodh
+ExecStart=/usr/bin/aodh-expirer --logfile /var/log/aodh/expirer.log
+
+[Install]
+WantedBy=multi-user.target
+
