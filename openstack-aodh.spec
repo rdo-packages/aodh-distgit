@@ -1,8 +1,8 @@
 %global pypi_name aodh
 
 Name:             openstack-aodh
-Version:          1.0.0
-Release:          1%{?dist}
+Version:          XXX
+Release:          XXX
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
 URL:              https://github.com/openstack/aodh.git
@@ -171,7 +171,7 @@ This package contains the aodh expirer service.
 
 
 %prep
-%setup -q -n %{pypi_name}-%{version}
+%setup -q -n %{pypi_name}-%{upstream_version}
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
@@ -294,7 +294,3 @@ exit 0
 
 
 %changelog
-* Mon Sep 14 2015 Pradeep Kilambi <pkilambi@redhat.com> aodh-1.0.0-1
-- initial package release
-
-
