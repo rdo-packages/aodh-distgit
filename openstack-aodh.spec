@@ -261,9 +261,9 @@ exit 0
 
 %files common
 %dir %{_sysconfdir}/aodh
-%config(noreplace) %attr(-, root, ceilometer) %{_sysconfdir}/aodh/aodh.conf
-%config(noreplace) %attr(-, root, ceilometer) %{_sysconfdir}/aodh/policy.json
-%config(noreplace) %attr(-, root, ceilometer) %{_sysconfdir}/aodh/api_paste.ini
+%config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/aodh.conf
+%config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/policy.json
+%config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/api_paste.ini
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %dir %{_localstatedir}/log/aodh
 %dir %{_sharedstatedir}/aodh
