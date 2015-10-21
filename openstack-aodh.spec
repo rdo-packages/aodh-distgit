@@ -2,7 +2,7 @@
 
 Name:             openstack-aodh
 Version:          1.0.0
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
 URL:              https://github.com/openstack/aodh.git
@@ -294,6 +294,9 @@ exit 0
 
 
 %changelog
+* Wed Oct 21 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 1.0.0-2
+- Fix files group ownership (from Emilien Macchi)
+
 * Mon Sep 14 2015 Pradeep Kilambi <pkilambi@redhat.com> aodh-1.0.0-1
 - initial package release
 
