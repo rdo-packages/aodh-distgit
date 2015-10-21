@@ -260,15 +260,17 @@ exit 0
 
 
 %files common
+%doc README.rst
 %dir %{_sysconfdir}/aodh
 %config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/aodh.conf
 %config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/policy.json
 %config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/api_paste.ini
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
-%dir %{_localstatedir}/log/aodh
+%dir %attr(0755, aodh, root)  %{_localstatedir}/log/aodh
+
+%defattr(-, aodh, aodh, -)
 %dir %{_sharedstatedir}/aodh
 %dir %{_sharedstatedir}/aodh/tmp
-%doc README.rst
 
 %files api
 %{_bindir}/aodh-dbsync
