@@ -6,6 +6,7 @@ After=syslog.target network.target
 Type=simple
 User=aodh
 ExecStart=/usr/bin/aodh-evaluator --logfile /var/log/aodh/evaluator.log
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
