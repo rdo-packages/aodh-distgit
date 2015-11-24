@@ -1,8 +1,8 @@
 %global pypi_name aodh
 
 Name:             openstack-aodh
-Version:          1.0.0
-Release:          3%{?dist}
+Version:          1.1.0
+Release:          1%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
 URL:              https://github.com/openstack/aodh.git
@@ -296,6 +296,9 @@ exit 0
 
 
 %changelog
+* Tue Nov 24 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 1.1.0-1
+- Upstream 1.1.0
+
 * Thu Oct 22 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 1.0.0-3
 - Fix ownership of aodh log dir (From Pradeep Kilambi)
 
