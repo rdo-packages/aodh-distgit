@@ -36,6 +36,7 @@ Aodh is the alarm engine of the Ceilometer project.
 Summary:          OpenStack aodh compat
 
 Provides:         openstack-ceilometer-alarm = %{version}-%{release}
+Obsoletes:        openstack-ceilometer-alarm < 6.0.0
 
 Requires:         python-aodh
 Requires:         %{name}-common
