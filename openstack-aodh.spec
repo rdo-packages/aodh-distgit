@@ -10,8 +10,7 @@ BuildArch:        noarch
 Source0:          https://pypi.python.org/packages/source/a/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 
 Source1:          %{pypi_name}.conf.sample
-Source2:          policy.json.sample
-Source3:          %{pypi_name}.logrotate
+Source2:          %{pypi_name}.logrotate
 Source10:         %{name}-api.service
 Source11:         %{name}-evaluator.service
 Source12:         %{name}-notifier.service
@@ -194,7 +193,7 @@ install -d -m 755 %{buildroot}%{_sharedstatedir}/aodh
 # Install config files
 install -d -m 755 %{buildroot}%{_sysconfdir}/aodh
 install -p -D -m 640 %{SOURCE1} %{buildroot}%{_sysconfdir}/aodh/aodh.conf
-install -p -D -m 640 %{SOURCE2} %{buildroot}%{_sysconfdir}/aodh/policy.json
+install -p -D -m 640 etc/aodh/policy.json %{buildroot}%{_sysconfdir}/aodh/policy.json
 install -p -D -m 640 etc/aodh/api_paste.ini %{buildroot}%{_sysconfdir}/aodh/api_paste.ini
 
 # Setup directories
@@ -203,7 +202,7 @@ install -d -m 755 %{buildroot}%{_sharedstatedir}/aodh/tmp
 install -d -m 755 %{buildroot}%{_localstatedir}/log/aodh
 
 # Install logrotate
-install -p -D -m 644 %{SOURCE3} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
+install -p -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
 
 # Install systemd unit services
 install -p -D -m 644 %{SOURCE10} %{buildroot}%{_unitdir}/%{name}-api.service
