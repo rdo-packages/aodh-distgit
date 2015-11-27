@@ -65,7 +65,7 @@ Requires:         python-migrate
 Requires:         python-oslo-context
 Requires:         python-oslo-concurrency
 Requires:         python-oslo-config >= 1.15.0
-Requires:         python-oslo-db >= 0.12.0
+Requires:         python-oslo-db >= 1.12.0
 Requires:         python-oslo-i18n >= 1.5.0
 Requires:         python-oslo-log >= 1.2.0
 Requires:         python-oslo-policy >= 0.5.0
