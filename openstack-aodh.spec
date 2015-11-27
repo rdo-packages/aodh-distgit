@@ -60,6 +60,7 @@ Requires:         python-jsonschema
 Requires:         python-lxml
 
 Requires:         python-alembic >= 0.7.2
+Requires:         python-eventlet >= 0.17.4
 Requires:         python-migrate
 Requires:         python-oslo-context
 Requires:         python-oslo-concurrency
@@ -71,12 +72,14 @@ Requires:         python-oslo-policy >= 0.5.0
 Requires:         python-oslo-messaging > 1.17.0
 Requires:         python-oslo-middleware
 Requires:         python-oslo-serialization >= 1.4.0
+Requires:         python-oslo-service >= 0.1.0
 Requires:         python-keystonemiddleware >= 2.2.0
 Requires:         python-pbr
-Requires:         python-pecan >= 0.4.5
-Requires:         python-six >= 1.6
+Requires:         python-pecan >= 0.8.0
+Requires:         python-six >= 1.9.0
+Requires:         python-stevedore >= 1.5.0
 Requires:         python-sqlalchemy
-Requires:         python-requests >= 1.2.1
+Requires:         python-requests >= 2.5.2
 Requires:         python-retrying
 Requires:         python-tooz
 Requires:         python-werkzeug
@@ -84,7 +87,7 @@ Requires:         python-webob
 Requires:         python-wsme >= 0.6
 Requires:         python-paste-deploy
 Requires:         python-ceilometerclient
-Requires:         python-keystoneclient >= 1.5.0
+Requires:         python-keystoneclient >= 1.6.0
 
 %description -n   python-aodh
 OpenStack aodh provides API and services for managing alarms.
