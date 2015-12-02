@@ -6,6 +6,7 @@ After=syslog.target network.target
 Type=simple
 User=aodh
 ExecStart=/usr/bin/aodh-listener --logfile /var/log/aodh/listener.log
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
