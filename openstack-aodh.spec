@@ -88,6 +88,7 @@ Requires:         python-webob
 Requires:         python-wsme >= 0.6
 Requires:         python-paste-deploy
 Requires:         python-ceilometerclient
+Requires:         python-gnocchiclient >= 2.1.0
 Requires:         python-keystoneclient >= 1.6.0
 
 %description -n   python-aodh
