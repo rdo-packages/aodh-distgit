@@ -298,6 +298,9 @@ exit 0
 
 
 %changelog
+* Fri Nov 27 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 1.1.0-8
+- test
+
 * Fri Nov 27 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 1.1.0-2
 - Use policy.json provided by upstream (fix services start)
 - Fix requirements
