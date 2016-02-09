@@ -28,7 +28,7 @@ BuildRequires:    python-eventlet
 
 
 %description
-Aodh is the alarm engine of the Ceilometer project.
+Aodh is the alarm engine of the Ceilometer project test.
 
 
 %package          compat
