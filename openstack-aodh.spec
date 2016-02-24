@@ -192,9 +192,6 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 %install
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
-# Setup directories
-install -d -m 755 %{buildroot}%{_sharedstatedir}/aodh
-
 # Install config files
 install -d -m 755 %{buildroot}%{_sysconfdir}/aodh
 install -p -D -m 640 %{SOURCE1} %{buildroot}%{_sysconfdir}/aodh/aodh.conf
@@ -216,6 +213,8 @@ install -p -D -m 644 %{SOURCE12} %{buildroot}%{_unitdir}/%{name}-notifier.servic
 install -p -D -m 644 %{SOURCE13} %{buildroot}%{_unitdir}/%{name}-expirer.service
 install -p -D -m 644 %{SOURCE14} %{buildroot}%{_unitdir}/%{name}-listener.service
 
+# Remove unused files
+rm -fr %{buildroot}/usr/etc
 
 %pre common
 getent group aodh >/dev/null || groupadd -r aodh
