@@ -173,6 +173,15 @@ OpenStack aodh provides API and services for managing alarms.
 
 This package contains the aodh expirer service.
 
+%package -n python-aodh-tests
+Summary:        Aodh tests
+Requires:       python-aodh = %{version}-%{release}
+
+%description -n python-aodh-tests
+OpenStack aodh provides API and services for managing alarms.
+
+This package contains the Aodh test files.
+
 
 %prep
 %setup -q -n %{pypi_name}-%{upstream_version}
@@ -260,7 +269,11 @@ exit 0
 %{python2_sitelib}/aodh
 %{python2_sitelib}/aodh-*.egg-info
 %license LICENSE
+%exclude %{python2_sitelib}/aodh/tests
 
+%files -n python-aodh-tests
+%license LICENSE
+%{python2_sitelib}/aodh/tests
 
 %files common
 %doc README.rst
