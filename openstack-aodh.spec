@@ -72,7 +72,7 @@ Requires:         python-oslo-db >= 1.12.0
 Requires:         python-oslo-i18n >= 1.5.0
 Requires:         python-oslo-log >= 1.2.0
 Requires:         python-oslo-policy >= 0.5.0
-Requires:         python-oslo-messaging > 1.17.0
+Requires:         python-oslo-messaging > 2.6.1
 Requires:         python-oslo-middleware
 Requires:         python-oslo-serialization >= 1.4.0
 Requires:         python-oslo-service >= 0.1.0
@@ -87,7 +87,7 @@ Requires:         python-retrying
 Requires:         python-tooz
 Requires:         python-werkzeug
 Requires:         python-webob
-Requires:         python-wsme >= 0.6
+Requires:         python-wsme >= 0.8
 Requires:         python-paste-deploy
 Requires:         python-ceilometerclient
 Requires:         python-gnocchiclient >= 2.1.0
