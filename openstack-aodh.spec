@@ -1,11 +1,10 @@
-%define milestone .0rc1
 %global pypi_name aodh
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:             openstack-aodh
 Version:          2.0.0
-Release:          0.2%{milestone}%{?dist}
+Release:          1%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
 URL:              https://github.com/openstack/aodh.git
@@ -319,6 +318,9 @@ exit 0
 
 
 %changelog
+* Thu Apr  7 2016 Haïkel Guémar <hguemar@fedoraproject.org> - 2.0.0-1
+- Upstream 2.0.0
+
 * Wed Mar 23 2016 Haikel Guemar <hguemar@fedoraproject.org> 2.0.0-0.2.0rc1
 - Update to 2.0.0.0rc1
 
