@@ -1,5 +1,5 @@
-# UUID          Group Name
-6ddfecad023c6f4fa3ac8c4d2583c502ea675a73 	Non-Interactive Users
-6cc55a6e5d86c4c171f45946554eae479e03f64b       	aodh-distgit-core
-5c82496aaa5022bb4eee49d5e6b2394a77fcb521        	aodh-distgit-ptl
-global:Registered-Users		Registered Users
+# UUID                                  	Group Name
+#
+5c82496aaa5022bb4eee49d5e6b2394a77fcb521	openstack/aodh-distgit-ptl
+6cc55a6e5d86c4c171f45946554eae479e03f64b	aodh-distgit-core
+global:Registered-Users                 	Registered Users
