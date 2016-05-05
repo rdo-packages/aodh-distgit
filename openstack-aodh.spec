@@ -11,7 +11,7 @@ URL:              https://github.com/openstack/aodh.git
 BuildArch:        noarch
 Source0:          http://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
 
-Source1:          %{pypi_name}.conf.sample
+Source1:          %{pypi_name}-dist.conf
 Source2:          %{pypi_name}.logrotate
 Source10:         %{name}-api.service
 Source11:         %{name}-evaluator.service
@@ -100,6 +100,32 @@ This package contains the aodh python library.
 
 %package        common
 Summary:        Components common to all OpenStack aodh services
+
+# Config file generation
+BuildRequires:    python-oslo-config >= 2.6.0
+BuildRequires:    python-oslo-concurrency
+BuildRequires:    python-oslo-db
+BuildRequires:    python-oslo-log
+BuildRequires:    python-oslo-messaging
+BuildRequires:    python-oslo-policy
+BuildRequires:    python-oslo-reports
+BuildRequires:    python-oslo-service
+BuildRequires:    python-oslo-vmware >= 0.6.0
+BuildRequires:    python-ceilometerclient
+BuildRequires:    python-glanceclient >= 1:2.0.0
+BuildRequires:    python-keystonemiddleware
+BuildRequires:    python-neutronclient
+BuildRequires:    python-novaclient  >= 1:2.29.0
+BuildRequires:    python-swiftclient
+BuildRequires:    python-croniter
+BuildRequires:    python-jsonpath-rw
+BuildRequires:    python-jsonpath-rw-ext
+BuildRequires:    python-lxml
+BuildRequires:    python-pecan >= 1.0.0
+BuildRequires:    python-tooz
+BuildRequires:    python-werkzeug
+BuildRequires:    python-wsme >= 0.7
+BuildRequires:    python-gnocchiclient >= 2.1.0
 
 Requires:       python-aodh = %{version}-%{release}
 
@@ -198,14 +224,31 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 
 
 %build
+# Generate config file
+PYTHONPATH=. oslo-config-generator --config-file=aodh-config-generator.conf
+
 %{__python2} setup.py build
+
+
+# Programmatically update defaults in sample config
+# which is installed at /etc/aodh/aodh.conf
+# TODO: Make this more robust
+# Note it only edits the first occurrence, so assumes a section ordering in sample
+# and also doesn't support multi-valued variables.
+while read name eq value; do
+  test "$name" && test "$value" || continue
+  sed -i "0,/^# *$name=/{s!^# *$name=.*!#$name=$value!}" etc/aodh/aodh.conf
+done < %{SOURCE1}
+
+
 
 %install
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
 # Install config files
 install -d -m 755 %{buildroot}%{_sysconfdir}/aodh
-install -p -D -m 640 %{SOURCE1} %{buildroot}%{_sysconfdir}/aodh/aodh.conf
+install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/aodh/aodh-dist.conf
+install -p -D -m 640 etc/aodh/aodh.conf %{buildroot}%{_sysconfdir}/aodh/aodh.conf
 install -p -D -m 640 etc/aodh/policy.json %{buildroot}%{_sysconfdir}/aodh/policy.json
 install -p -D -m 640 etc/aodh/api_paste.ini %{buildroot}%{_sysconfdir}/aodh/api_paste.ini
 
@@ -280,6 +323,7 @@ exit 0
 %files common
 %doc README.rst
 %dir %{_sysconfdir}/aodh
+%attr(-, root, aodh) %{_datadir}/aodh/aodh-dist.conf
 %config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/aodh.conf
 %config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/policy.json
 %config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/api_paste.ini
