@@ -13,6 +13,7 @@ Source0:          http://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{vers
 
 Source1:          %{pypi_name}.conf.sample
 Source2:          %{pypi_name}.logrotate
+Source3:          %{pypi_name}-dist.conf
 Source10:         %{name}-api.service
 Source11:         %{name}-evaluator.service
 Source12:         %{name}-notifier.service
@@ -198,13 +199,30 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 
 
 %build
+# Generate config file
+PYTHONPATH=. oslo-config-generator --config-file=aodh-config-generator.conf
+
 %{__python2} setup.py build
+
+
+# Programmatically update defaults in sample config
+# which is installed at /etc/aodh/aodh.conf
+# TODO: Make this more robust
+# Note it only edits the first occurrence, so assumes a section ordering in sample
+# and also doesn't support multi-valued variables.
+while read name eq value; do
+  test "$name" && test "$value" || continue
+  sed -i "0,/^# *$name=/{s!^# *$name=.*!#$name=$value!}" etc/aodh/aodh.conf
+done < %{SOURCE1}
+
+
 
 %install
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
 # Install config files
 install -d -m 755 %{buildroot}%{_sysconfdir}/aodh
+install -p -D -m 640 %{SOURCE3} %{buildroot}%{_datadir}/aodh/aodh-dist.conf
 install -p -D -m 640 %{SOURCE1} %{buildroot}%{_sysconfdir}/aodh/aodh.conf
 install -p -D -m 640 etc/aodh/policy.json %{buildroot}%{_sysconfdir}/aodh/policy.json
 install -p -D -m 640 etc/aodh/api_paste.ini %{buildroot}%{_sysconfdir}/aodh/api_paste.ini
@@ -280,6 +298,7 @@ exit 0
 %files common
 %doc README.rst
 %dir %{_sysconfdir}/aodh
+%attr(-, root, aodh) %{_datadir}/aodh/aodh-dist.conf
 %config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/aodh.conf
 %config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/policy.json
 %config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/api_paste.ini
