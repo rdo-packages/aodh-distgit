@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_6fd56542",
+        "filename": "openstack-aodh.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2016-05-06T09:31:51Z",
+      "side": 1,
+      "message": "Now that the sample config file is removed from the repo, it should also be removed in the spec.",
+      "range": {
+        "startLine": 14,
+        "startChar": 16,
+        "endLine": 14,
+        "endChar": 42
+      },
+      "revId": "b2e322b254bc97edfbe0c922e16d7e1dafc64acf",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
