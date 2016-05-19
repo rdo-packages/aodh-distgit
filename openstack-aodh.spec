@@ -1,8 +1,8 @@
 %global pypi_name aodh
 
 Name:             openstack-aodh
-Version:          1.1.0
-Release:          2%{?dist}
+Version:          1.1.2
+Release:          1%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
 URL:              https://github.com/openstack/aodh.git
@@ -298,6 +298,9 @@ exit 0
 
 
 %changelog
+* Thu May 19 2016 Alan Pevec <alan.pevec@redhat.com> 1.1.2-1
+- Update to 1.1.2
+
 * Fri Nov 27 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 1.1.0-2
 - Use policy.json provided by upstream (fix services start)
 - Fix requirements
