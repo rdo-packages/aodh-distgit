@@ -300,6 +300,8 @@ exit 0
 %changelog
 * Thu May 19 2016 Alan Pevec <alan.pevec@redhat.com> 1.1.2-1
 - Update to 1.1.2
+- Fix aodh requirements (from Haikel Guemar)
+- Set automatic restart for aodh services (from Haikel Guemar)
 
 * Fri Nov 27 2015 Haïkel Guémar <hguemar@fedoraproject.org> - 1.1.0-2
 - Use policy.json provided by upstream (fix services start)
