@@ -26,7 +26,8 @@ BuildRequires:    systemd
 BuildRequires:    python-pbr
 BuildRequires:    python-sphinx
 BuildRequires:    python-eventlet
-
+# Required to compile translation files
+BuildRequires:    python-babel
 
 
 %description
@@ -228,6 +229,8 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 PYTHONPATH=. oslo-config-generator --config-file=etc/aodh/aodh-config-generator.conf
 
 %{__python2} setup.py build
+# Generate i18n files
+%{__python2} setup.py compile_catalog -d build/lib/%{pypi_name}/locale
 
 
 # Programmatically update defaults in sample config
@@ -266,6 +269,15 @@ install -p -D -m 644 %{SOURCE11} %{buildroot}%{_unitdir}/%{name}-evaluator.servi
 install -p -D -m 644 %{SOURCE12} %{buildroot}%{_unitdir}/%{name}-notifier.service
 install -p -D -m 644 %{SOURCE13} %{buildroot}%{_unitdir}/%{name}-expirer.service
 install -p -D -m 644 %{SOURCE14} %{buildroot}%{_unitdir}/%{name}-listener.service
+
+# Install i18n .mo files (.po and .pot are not required)
+install -d -m 755 %{buildroot}%{_datadir}
+rm -f %{buildroot}%{python2_sitelib}/%{pypi_name}/locale/*/LC_*/%{pypi_name}*po
+rm -f %{buildroot}%{python2_sitelib}/%{pypi_name}/locale/*pot
+mv %{buildroot}%{python2_sitelib}/%{pypi_name}/locale %{buildroot}%{_datadir}/locale
+
+# Find language files
+%find_lang %{pypi_name} --all-name
 
 # Remove unused files
 rm -fr %{buildroot}/usr/etc
@@ -320,7 +332,7 @@ exit 0
 %license LICENSE
 %{python2_sitelib}/aodh/tests
 
-%files common
+%files common -f %{pypi_name}.lang
 %doc README.rst
 %dir %{_sysconfdir}/aodh
 %attr(-, root, aodh) %{_datadir}/aodh/aodh-dist.conf
