@@ -3,17 +3,13 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:             openstack-aodh
-Version:          2.0.0
+Version:          2.0.1
 Release:          1%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
 URL:              https://github.com/openstack/aodh.git
 BuildArch:        noarch
 Source0:          http://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
-
-#
-# patches_base=2.0.0.0rc1
-#
 
 Source1:          %{pypi_name}.conf.sample
 Source2:          %{pypi_name}.logrotate
@@ -318,6 +314,9 @@ exit 0
 
 
 %changelog
+* Thu May 26 2016 Haikel Guemar <hguemar@fedoraproject.org> 2.0.1-1
+- Update to 2.0.1
+
 * Thu Apr  7 2016 Haïkel Guémar <hguemar@fedoraproject.org> - 2.0.0-1
 - Upstream 2.0.0
 
