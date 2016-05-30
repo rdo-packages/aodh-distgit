@@ -337,6 +337,7 @@ exit 0
 %files api
 %{_bindir}/aodh-dbsync
 %{_bindir}/aodh-api
+%{_bindir}/aodh-data-migration
 %{_unitdir}/%{name}-api.service
 
 %files evaluator
