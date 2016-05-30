@@ -334,6 +334,8 @@ exit 0
 %dir %{_sharedstatedir}/aodh
 %dir %{_sharedstatedir}/aodh/tmp
 
+%{_bindir}/aodh-data-migration  
+
 %files api
 %{_bindir}/aodh-dbsync
 %{_bindir}/aodh-api
