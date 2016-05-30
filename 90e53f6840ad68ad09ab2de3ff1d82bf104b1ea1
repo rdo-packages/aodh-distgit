@@ -16,6 +16,24 @@
       "revId": "90e53f6840ad68ad09ab2de3ff1d82bf104b1ea1",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dabed58f_55402f56",
+        "filename": "openstack-aodh.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2016-05-30T14:09:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dabed58f_7563f31a",
+      "revId": "90e53f6840ad68ad09ab2de3ff1d82bf104b1ea1",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
