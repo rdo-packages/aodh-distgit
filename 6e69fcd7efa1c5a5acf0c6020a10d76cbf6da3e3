@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dabed58f_35125b63",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-05-30T17:33:03Z",
+      "side": 1,
+      "message": "this is merge comit, please link to gerrit review instead https://review.openstack.org/309915\n\nBTW that one has backport to mitaka: https://review.openstack.org/322688\n\n@pradk is aodh allowing feature backports??",
+      "revId": "6e69fcd7efa1c5a5acf0c6020a10d76cbf6da3e3",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
