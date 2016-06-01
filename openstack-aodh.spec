@@ -84,7 +84,7 @@ Requires:         python-stevedore >= 1.5.0
 Requires:         python-sqlalchemy
 Requires:         python-requests >= 2.5.2
 Requires:         python-retrying
-Requires:         python-tooz
+Requires:         python-tooz >= 1.28.0
 Requires:         python-werkzeug
 Requires:         python-webob
 Requires:         python-wsme >= 0.8
