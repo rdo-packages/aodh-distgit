@@ -67,7 +67,7 @@ Requires:         python-eventlet >= 0.17.4
 Requires:         python-migrate
 Requires:         python-oslo-context
 Requires:         python-oslo-concurrency
-Requires:         python-oslo-config >= 2.6.0
+Requires:         python-oslo-config >= 2:2.6.0
 Requires:         python-oslo-db >= 1.12.0
 Requires:         python-oslo-i18n >= 1.5.0
 Requires:         python-oslo-log >= 1.2.0
@@ -102,7 +102,7 @@ This package contains the aodh python library.
 Summary:        Components common to all OpenStack aodh services
 
 # Config file generation
-BuildRequires:    python-oslo-config >= 2.6.0
+BuildRequires:    python-oslo-config >= 2:2.6.0
 BuildRequires:    python-oslo-concurrency
 BuildRequires:    python-oslo-db
 BuildRequires:    python-oslo-log
