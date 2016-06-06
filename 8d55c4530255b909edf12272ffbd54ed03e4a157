@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a494da4_9b368be6",
+        "filename": "openstack-aodh.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-06-06T17:51:11Z",
+      "side": 1,
+      "message": "Just a note for other reviewers: I was wondering why only 2.6.0 when Mitaka has oslo.config\u003e\u003d3.7.0 but then I remembered that aodh is NOT participating in global openstack/requirements",
+      "revId": "8d55c4530255b909edf12272ffbd54ed03e4a157",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
