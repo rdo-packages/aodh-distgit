@@ -67,7 +67,7 @@ Requires:         python-eventlet >= 0.17.4
 Requires:         python-migrate
 Requires:         python-oslo-context
 Requires:         python-oslo-concurrency
-Requires:         python-oslo-config >= 2.6.0
+Requires:         python-oslo-config >= 2:2.6.0
 Requires:         python-oslo-db >= 1.12.0
 Requires:         python-oslo-i18n >= 1.5.0
 Requires:         python-oslo-log >= 1.2.0
