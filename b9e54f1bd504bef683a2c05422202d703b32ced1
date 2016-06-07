@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa57193c_3a31410c",
+        "filename": "openstack-aodh.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2016-06-07T14:03:05Z",
+      "side": 1,
+      "message": "Also needed here",
+      "range": {
+        "startLine": 105,
+        "startChar": 25,
+        "endLine": 105,
+        "endChar": 29
+      },
+      "revId": "b9e54f1bd504bef683a2c05422202d703b32ced1",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
