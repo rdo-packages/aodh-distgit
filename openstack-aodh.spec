@@ -350,6 +350,7 @@ exit 0
 %{_bindir}/aodh-dbsync
 %{_bindir}/aodh-api
 %{_bindir}/aodh-data-migration
+%{_bindir}/aodh-combination-alarm-conversion
 %{_unitdir}/%{name}-api.service
 
 %files evaluator
