@@ -26,6 +26,7 @@ BuildRequires:    systemd
 BuildRequires:    python-pbr
 BuildRequires:    python-sphinx
 BuildRequires:    python-eventlet
+BuildRequires:    python-cotyledon
 # Required to compile translation files
 BuildRequires:    python-babel
 
@@ -64,6 +65,7 @@ Requires:         python-jsonschema
 Requires:         python-lxml
 
 Requires:         python-alembic >= 0.7.2
+Requires:         python-cotyledon
 Requires:         python-eventlet >= 0.17.4
 Requires:         python-migrate
 Requires:         python-oslo-context
@@ -372,3 +374,4 @@ exit 0
 
 
 %changelog
+# REMOVEME: error caused by commit 
