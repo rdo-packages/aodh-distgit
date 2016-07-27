@@ -4,7 +4,7 @@
 
 Name:             openstack-aodh
 Version:          2.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
 URL:              https://github.com/openstack/aodh.git
@@ -359,6 +359,10 @@ exit 0
 
 
 %changelog
+* Wed Jul 27 2016 Haïkel Guémar <hguemar@fedoraproject.org> - 2.0.3-2
+- Fix requirements
+- Generate aodh configuration files
+
 * Wed Jul 27 2016 Haikel Guemar <hguemar@fedoraproject.org> 2.0.3-1
 - Update to 2.0.3
 - Add aodh-data-migration for migrating alarms data from NoSQL to SQL
