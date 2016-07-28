@@ -92,6 +92,7 @@ Requires:         python-werkzeug
 Requires:         python-webob
 Requires:         python-wsme >= 0.8
 Requires:         python-paste-deploy
+Requires:         python-aodhclient
 Requires:         python-ceilometerclient
 Requires:         python-gnocchiclient >= 2.1.0
 Requires:         python-keystoneclient >= 1.6.0
@@ -135,6 +136,7 @@ Requires:       python-aodh = %{version}-%{release}
 Requires:       python-oslo-log
 Requires:       python-oslo-utils
 Requires:       python-six
+Requires:       python-aodhclient
 Requires:       python-ceilometerclient
 
 Requires(post):   systemd-units
