@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a106d94_e3571225",
+        "filename": "openstack-aodh.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 84
+      },
+      "writtenOn": "2016-07-28T16:32:49Z",
+      "side": 1,
+      "message": "This is not needed because of the Requires: python-aodh.\n\nkind of a nit, but better to keep these lists as short as possible.",
+      "revId": "2e1ed9b2ee0d7ee03c1037fd27b6d0cebbf65453",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
