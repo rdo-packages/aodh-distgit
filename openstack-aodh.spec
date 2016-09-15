@@ -7,7 +7,7 @@ Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
 URL:              https://github.com/openstack/aodh.git
 BuildArch:        noarch
-Source0:          https://pypi.python.org/packages/source/a/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
+Source0:          https://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
 
 Source1:          %{pypi_name}.conf.sample
 Source2:          %{pypi_name}.logrotate
