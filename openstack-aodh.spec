@@ -222,6 +222,9 @@ find . \( -name .gitignore -o -name .placeholder \) -delete
 find aodh -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
 sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
+# Remove buggy PO-Revision-Date lines in translation
+# See https://bugs.launchpad.net/openstack-i18n/+bug/1586041 for details
+sed -i '/^\"PO-Revision-Date: \\n\"/d' aodh/locale/*/LC_MESSAGES/*.po
 
 rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 
