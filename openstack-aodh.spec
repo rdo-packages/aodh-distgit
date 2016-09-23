@@ -1,7 +1,7 @@
 %global pypi_name aodh
 
 Name:             openstack-aodh
-Version:          1.1.2
+Version:          1.1.4
 Release:          1%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
@@ -298,6 +298,9 @@ exit 0
 
 
 %changelog
+* Fri Sep 23 2016 Mehdi Abaakouk <sileht@redhat.com> 1.1.4-1
+- Update to 1.1.4 
+
 * Thu May 19 2016 Alan Pevec <alan.pevec@redhat.com> 1.1.2-1
 - Update to 1.1.2
 - Fix aodh requirements (from Haikel Guemar)
