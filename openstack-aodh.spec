@@ -1,20 +1,15 @@
-%global milestone .0rc1
 %global pypi_name aodh
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:             openstack-aodh
 Version:          3.0.0
-Release:          0.2%{?milestone}%{?dist}
+Release:          1%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
 URL:              https://github.com/openstack/aodh.git
 BuildArch:        noarch
 Source0:          https://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
-
-#
-# patches_base=3.0.0.0rc1
-#
 
 Source1:          %{pypi_name}-dist.conf
 Source2:          %{pypi_name}.logrotate
@@ -382,6 +377,9 @@ exit 0
 
 
 %changelog
+* Thu Oct 06 2016 Haikel Guemar <hguemar@fedoraproject.org> 3.0.0-1
+- Update to 3.0.0
+
 * Thu Sep 22 2016 Alfredo Moralejo <amoralej@redhat.com> 3.0.0-0.2.0rc1
 - Added workaround for buggy locale imports
 
