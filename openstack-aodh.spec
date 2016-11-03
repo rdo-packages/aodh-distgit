@@ -253,6 +253,22 @@ done < %{SOURCE1}
 %install
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
+# Create fake egg-info for the tempest plugin
+# TODO switch to %{service} everywhere as in openstack-example.spec
+%global service aodh
+egg_path=%{buildroot}%{python_sitelib}/%{service}-*.egg-info
+tempest_egg_path=%{buildroot}%{python_sitelib}/%{service}_tests.egg-info
+mkdir $tempest_egg_path
+grep "tempest\|Tempest" %{service}.egg-info/entry_points.txt >$tempest_egg_path/entry_points.txt
+cat > $tempest_egg_path/PKG-INFO <<EOF
+Metadata-Version: 1.1
+Name: %{service}_tests
+Version: %{upstream_version}
+Summary: %{summary} Tempest Plugin
+EOF
+# Remove any reference to Tempest plugin in the main package entry point
+sed -i "/tempest\|Tempest/d" $egg_path/entry_points.txt
+
 # Install config files
 install -d -m 755 %{buildroot}%{_sysconfdir}/aodh
 install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/aodh/aodh-dist.conf
@@ -336,6 +352,7 @@ exit 0
 %files -n python-aodh-tests
 %license LICENSE
 %{python2_sitelib}/aodh/tests
+%{python2_sitelib}/%{service}_tests.egg-info
 
 %files common -f %{pypi_name}.lang
 %doc README.rst
