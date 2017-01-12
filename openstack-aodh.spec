@@ -4,7 +4,7 @@
 
 Name:             openstack-aodh
 Version:          3.0.3
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
 URL:              https://github.com/openstack/aodh.git
@@ -346,13 +346,13 @@ exit 0
 %config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/api_paste.ini
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %dir %attr(0755, aodh, root)  %{_localstatedir}/log/aodh
+%{_bindir}/aodh-dbsync
 
 %defattr(-, aodh, aodh, -)
 %dir %{_sharedstatedir}/aodh
 %dir %{_sharedstatedir}/aodh/tmp
 
 %files api
-%{_bindir}/aodh-dbsync
 %{_bindir}/aodh-api
 %{_bindir}/aodh-data-migration
 %{_bindir}/aodh-combination-alarm-conversion
@@ -377,6 +377,9 @@ exit 0
 
 
 %changelog
+* Mon Jul 24 2017 Pradeep Kilambi <pkilambi@redhat.com> 3.0.3-2
+- Move aodh-dbsync to openstack-aodh-common
+
 * Thu Jul 13 2017 Mehdi Abaakouk <sileht@redhat.com> 3.0.3-1
 - Update to 3.0.3
 
