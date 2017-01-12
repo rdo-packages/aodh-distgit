@@ -352,13 +352,13 @@ exit 0
 %config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/api_paste.ini
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %dir %attr(0755, aodh, root)  %{_localstatedir}/log/aodh
+%{_bindir}/aodh-dbsync
 
 %defattr(-, aodh, aodh, -)
 %dir %{_sharedstatedir}/aodh
 %dir %{_sharedstatedir}/aodh/tmp
 
 %files api
-%{_bindir}/aodh-dbsync
 %{_bindir}/aodh-api
 %{_bindir}/aodh-combination-alarm-conversion
 %{_unitdir}/%{name}-api.service
