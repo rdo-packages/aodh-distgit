@@ -20,6 +20,7 @@ Source14:         %{name}-listener.service
 
 BuildArch:        noarch
 
+BuildRequires:    openstack-macros
 BuildRequires:    python-setuptools
 BuildRequires:    python2-devel
 BuildRequires:    systemd
