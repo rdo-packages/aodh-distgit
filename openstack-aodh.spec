@@ -232,7 +232,7 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 
 %build
 # Generate config file
-PYTHONPATH=. oslo-config-generator --config-file=etc/aodh/aodh-config-generator.conf
+PYTHONPATH=. oslo-config-generator --config-file=etc/aodh/aodh-config-generator.conf --output-file=aodh/aodh.conf
 
 %{__python2} setup.py build
 # Generate i18n files
@@ -246,7 +246,7 @@ PYTHONPATH=. oslo-config-generator --config-file=etc/aodh/aodh-config-generator.
 # and also doesn't support multi-valued variables.
 while read name eq value; do
   test "$name" && test "$value" || continue
-  sed -i "0,/^# *$name=/{s!^# *$name=.*!#$name=$value!}" etc/aodh/aodh.conf
+  sed -i "0,/^# *$name=/{s!^# *$name=.*!#$name=$value!}" aodh/aodh.conf
 done < %{SOURCE1}
 
 
@@ -262,9 +262,8 @@ done < %{SOURCE1}
 # Install config files
 install -d -m 755 %{buildroot}%{_sysconfdir}/aodh
 install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/aodh/aodh-dist.conf
-install -p -D -m 640 etc/aodh/aodh.conf %{buildroot}%{_sysconfdir}/aodh/aodh.conf
-install -p -D -m 640 etc/aodh/policy.json %{buildroot}%{_sysconfdir}/aodh/policy.json
-install -p -D -m 640 etc/aodh/api_paste.ini %{buildroot}%{_sysconfdir}/aodh/api_paste.ini
+install -p -D -m 640 aodh/aodh.conf %{buildroot}%{_sysconfdir}/aodh/aodh.conf
+install -p -D -m 640 aodh/api/policy.json %{buildroot}%{_sysconfdir}/aodh/policy.json
 
 # Setup directories
 install -d -m 755 %{buildroot}%{_sharedstatedir}/aodh
@@ -350,7 +349,6 @@ exit 0
 %attr(-, root, aodh) %{_datadir}/aodh/aodh-dist.conf
 %config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/aodh.conf
 %config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/policy.json
-%config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/api_paste.ini
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %dir %attr(0755, aodh, root)  %{_localstatedir}/log/aodh
 %{_bindir}/aodh-dbsync
