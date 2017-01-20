@@ -383,3 +383,4 @@ exit 0
 
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/aodh/commit/?id=e839b57abc0b238cbbfc69527c9ff432a0b6b71b
