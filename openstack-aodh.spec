@@ -66,18 +66,21 @@ Requires:         python-jsonschema
 Requires:         python-lxml
 
 Requires:         python-alembic >= 0.7.2
+Requires:         python-cachetools >= 1.1.6
 Requires:         python-cotyledon
 Requires:         python-eventlet >= 0.17.4
+Requires:         python-futures >= 3.0
+Requires:         python-futurist >= 0.11.0
 Requires:         python-migrate
 Requires:         python-oslo-context
 Requires:         python-oslo-concurrency
 Requires:         python-oslo-config >= 2:2.6.0
-Requires:         python-oslo-db >= 1.12.0
+Requires:         python-oslo-db >= 4.16.0
 Requires:         python-oslo-i18n >= 1.5.0
 Requires:         python-oslo-log >= 1.2.0
 Requires:         python-oslo-policy >= 0.5.0
 Requires:         python-oslo-messaging >= 5.2.0
-Requires:         python-oslo-middleware
+Requires:         python-oslo-middleware >= 3.22.0
 Requires:         python-oslo-serialization >= 1.4.0
 Requires:         python-oslo-service >= 0.1.0
 Requires:         python-keystonemiddleware >= 2.2.0
@@ -88,6 +91,7 @@ Requires:         python-stevedore >= 1.5.0
 Requires:         python-sqlalchemy
 Requires:         python-requests >= 2.5.2
 Requires:         python-retrying
+Requires:         python-tenacity >= 3.2.1
 Requires:         python-tooz >= 1.28.0
 Requires:         python-werkzeug
 Requires:         python-webob
@@ -134,7 +138,7 @@ BuildRequires:    python-gnocchiclient >= 2.1.0
 Requires:       python-aodh = %{version}-%{release}
 
 Requires:       python-oslo-log
-Requires:       python-oslo-utils
+Requires:       python-oslo-utils >= 3.5.0
 Requires:       python-six
 Requires:       python-ceilometerclient
 
