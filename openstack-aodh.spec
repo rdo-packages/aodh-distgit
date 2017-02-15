@@ -354,7 +354,7 @@ exit 0
 %config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/aodh.conf
 %config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/policy.json
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
-%dir %attr(0755, aodh, root)  %{_localstatedir}/log/aodh
+%dir %attr(0750, aodh, root)  %{_localstatedir}/log/aodh
 %{_bindir}/aodh-dbsync
 
 %defattr(-, aodh, aodh, -)
