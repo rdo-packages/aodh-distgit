@@ -363,7 +363,6 @@ exit 0
 
 %files api
 %{_bindir}/aodh-api
-%{_bindir}/aodh-combination-alarm-conversion
 %{_unitdir}/%{name}-api.service
 
 %files evaluator
