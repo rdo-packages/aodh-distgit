@@ -3,7 +3,7 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:             openstack-aodh
-Version:          3.0.1
+Version:          3.0.2
 Release:          1%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
@@ -377,6 +377,9 @@ exit 0
 
 
 %changelog
+* Tue Feb 28 2017 Alfredo Moralejo <amoralej@redhat.com> 3.0.2-1
+- Update to 3.0.2
+
 * Thu Oct 06 2016 Haikel Guemar <hguemar@fedoraproject.org> 3.0.0-1
 - Update to 3.0.0
 
