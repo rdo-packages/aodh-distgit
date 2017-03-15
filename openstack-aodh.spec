@@ -272,7 +272,7 @@ install -p -D -m 640 aodh/api/policy.json %{buildroot}%{_sysconfdir}/aodh/policy
 # Setup directories
 install -d -m 755 %{buildroot}%{_sharedstatedir}/aodh
 install -d -m 755 %{buildroot}%{_sharedstatedir}/aodh/tmp
-install -d -m 755 %{buildroot}%{_localstatedir}/log/aodh
+install -d -m 750 %{buildroot}%{_localstatedir}/log/aodh
 
 # Install logrotate
 install -p -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
