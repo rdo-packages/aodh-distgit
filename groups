@@ -1,5 +1,9 @@
-# UUID                                  	Group Name
-#
-5c82496aaa5022bb4eee49d5e6b2394a77fcb521	openstack/aodh-distgit-ptl
-6cc55a6e5d86c4c171f45946554eae479e03f64b	openstack/aodh-distgit-core
-global:Registered-Users                 	Registered Users
+# UUID Group Name
+global:Registered-Users	Registered Users
+4572c517702492251ad622a289176552a8acbbb2	rdo-superusers
+global:Anonymous-Users	Anonymous Users
+0ff4adb9b3cf55b367ceb0a94504f9e019ea08b4	openstack/aodh-core
+05a678d3d4a168e149d5e8a0063bbd1b1c5526da	Administrators
+401cf37bee35d1c809d4d957e55f2a304f8eed69	rdo-provenpackagers
+6ddfecad023c6f4fa3ac8c4d2583c502ea675a73	Non-Interactive Users
+4c5405a3e4c5e2cd618e31d30c3e38b4ce11199e	openstack/aodh-ptl
