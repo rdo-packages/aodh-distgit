@@ -212,6 +212,7 @@ This package contains the aodh expirer service.
 %package -n python-aodh-tests
 Summary:        Aodh tests
 Requires:       python-aodh = %{version}-%{release}
+Requires:       python-gabbi >= 1.30.0
 
 %description -n python-aodh-tests
 OpenStack aodh provides API and services for managing alarms.
