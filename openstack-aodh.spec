@@ -237,7 +237,7 @@ rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 
 %build
 # Generate config file
-PYTHONPATH=. oslo-config-generator --config-file=etc/aodh/aodh-config-generator.conf --output-file=aodh/aodh.conf
+PYTHONPATH=. oslo-config-generator --config-file=aodh/aodh-config-generator.conf --output-file=aodh/aodh.conf
 
 %{__python2} setup.py build
 # Generate i18n files
@@ -357,6 +357,7 @@ exit 0
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %dir %attr(0750, aodh, root)  %{_localstatedir}/log/aodh
 %{_bindir}/aodh-dbsync
+%{_bindir}/aodh-config-generator
 
 %defattr(-, aodh, aodh, -)
 %dir %{_sharedstatedir}/aodh
