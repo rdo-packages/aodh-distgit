@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5a890539_73badde2",
+        "filename": "openstack-aodh.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-08-22T10:59:27Z",
+      "side": 1,
+      "message": "debtcollector dependency should be under python-aodh.",
+      "revId": "8885c99b53be2716f0ee86e745243f9b392456de",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
