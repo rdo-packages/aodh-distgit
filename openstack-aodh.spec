@@ -26,7 +26,6 @@ BuildRequires:    python2-devel
 BuildRequires:    systemd
 BuildRequires:    python-pbr
 BuildRequires:    python-sphinx
-BuildRequires:    python-eventlet
 BuildRequires:    python-cotyledon
 # Required to compile translation files
 BuildRequires:    python-babel
@@ -68,12 +67,8 @@ Requires:         python-lxml
 Requires:         python-alembic >= 0.7.2
 Requires:         python-cachetools >= 1.1.6
 Requires:         python-cotyledon
-Requires:         python-eventlet >= 0.17.4
 Requires:         python-futures >= 3.0
 Requires:         python-futurist >= 0.11.0
-Requires:         python-migrate
-Requires:         python-oslo-context
-Requires:         python-oslo-concurrency
 Requires:         python-oslo-config >= 2:2.6.0
 Requires:         python-oslo-db >= 4.16.0
 Requires:         python-oslo-i18n >= 1.5.0
@@ -90,16 +85,15 @@ Requires:         python-six >= 1.9.0
 Requires:         python-stevedore >= 1.5.0
 Requires:         python-sqlalchemy
 Requires:         python-requests >= 2.5.2
-Requires:         python-retrying
 Requires:         python-tenacity >= 3.2.1
 Requires:         python-tooz >= 1.28.0
-Requires:         python-werkzeug
 Requires:         python-webob
 Requires:         python-wsme >= 0.8
 Requires:         python-paste-deploy
-Requires:         python-ceilometerclient
+Requires:         python-ceilometerclient >= 1.5.0
 Requires:         python-gnocchiclient >= 2.1.0
 Requires:         python-keystoneclient >= 1.6.0
+Requires:         python-keystoneauth1 >= 2.1
 
 %description -n   python-aodh
 OpenStack aodh provides API and services for managing alarms.
@@ -111,7 +105,6 @@ Summary:        Components common to all OpenStack aodh services
 
 # Config file generation
 BuildRequires:    python-oslo-config >= 2:2.6.0
-BuildRequires:    python-oslo-concurrency
 BuildRequires:    python-oslo-db
 BuildRequires:    python-oslo-log
 BuildRequires:    python-oslo-messaging
@@ -131,16 +124,12 @@ BuildRequires:    python-jsonpath-rw-ext
 BuildRequires:    python-lxml
 BuildRequires:    python-pecan >= 1.0.0
 BuildRequires:    python-tooz
-BuildRequires:    python-werkzeug
 BuildRequires:    python-wsme >= 0.7
 BuildRequires:    python-gnocchiclient >= 2.1.0
 
 Requires:       python-aodh = %{version}-%{release}
 
-Requires:       python-oslo-log
 Requires:       python-oslo-utils >= 3.5.0
-Requires:       python-six
-Requires:       python-ceilometerclient
 
 Requires(post):   systemd-units
 Requires(preun):  systemd-units
@@ -157,7 +146,7 @@ OpenStack aodh provides API and services for managing alarms.
 Summary:        OpenStack aodh api
 
 Requires:       %{name}-common = %{version}-%{release}
-Requires:       python-ceilometerclient
+Requires:       python-debtcollector
 
 %description api
 OpenStack aodh provides API and servicesfor managing alarms.
