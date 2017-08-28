@@ -3,8 +3,8 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:             openstack-aodh
-Version:          3.0.3
-Release:          2%{?dist}
+Version:          3.0.4
+Release:          1%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
 URL:              https://github.com/openstack/aodh.git
@@ -377,6 +377,9 @@ exit 0
 
 
 %changelog
+* Mon Aug 28 2017 rdo-trunk <javier.pena@redhat.com> 3.0.4-1
+- Update to 3.0.4
+
 * Mon Jul 24 2017 Pradeep Kilambi <pkilambi@redhat.com> 3.0.3-2
 - Move aodh-dbsync to openstack-aodh-common
 
