@@ -1,17 +1,17 @@
-%global pypi_name aodh
+%global service aodh
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
-Name:             openstack-aodh
+Name:             openstack-%{service}
 Version:          XXX
 Release:          XXX
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
-URL:              https://github.com/openstack/aodh.git
-Source0:          https://tarballs.openstack.org/%{pypi_name}/%{pypi_name}-%{upstream_version}.tar.gz
+URL:              https://github.com/openstack/%{service}.git
+Source0:          https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 
-Source1:          %{pypi_name}-dist.conf
-Source2:          %{pypi_name}.logrotate
+Source1:          %{service}-dist.conf
+Source2:          %{service}.logrotate
 Source10:         %{name}-api.service
 Source11:         %{name}-evaluator.service
 Source12:         %{name}-notifier.service
@@ -36,7 +36,7 @@ Aodh is the alarm engine of the Ceilometer project.
 
 
 %package          compat
-Summary:          OpenStack aodh compat
+Summary:          OpenStack %{service} compat
 
 Provides:         openstack-ceilometer-alarm = %{version}-%{release}
 Obsoletes:        openstack-ceilometer-alarm < 1:6.0.0
@@ -54,8 +54,8 @@ This package only exists to help transition openstack-ceilometer-alarm users
 to the new package split. It will be removed after one distribution release
 cycle, please do not reference it or depend on it in any way.
 
-%package -n       python-aodh
-Summary:          OpenStack aodh python libraries
+%package -n       python-%{service}
+Summary:          OpenStack %{service} python libraries
 
 Requires:         pysnmp
 Requires:         pytz
@@ -96,13 +96,13 @@ Requires:         python-keystoneclient >= 1.6.0
 Requires:         python-keystoneauth1 >= 2.1
 Requires:         python-debtcollector
 
-%description -n   python-aodh
-OpenStack aodh provides API and services for managing alarms.
+%description -n   python-%{service}
+OpenStack %{service} provides API and services for managing alarms.
 
-This package contains the aodh python library.
+This package contains the %{service} python library.
 
 %package        common
-Summary:        Components common to all OpenStack aodh services
+Summary:        Components common to all OpenStack %{service} services
 
 # Config file generation
 BuildRequires:    python-oslo-config >= 2:2.6.0
@@ -139,98 +139,98 @@ Requires(pre):    shadow-utils
 
 
 %description    common
-OpenStack aodh provides API and services for managing alarms.
+OpenStack %{service} provides API and services for managing alarms.
 
 
 %package        api
 
-Summary:        OpenStack aodh api
+Summary:        OpenStack %{service} api
 
 Requires:       %{name}-common = %{version}-%{release}
 
 %description api
-OpenStack aodh provides API and servicesfor managing alarms.
+OpenStack %{service} provides API and servicesfor managing alarms.
 
-This package contains the aodh API service.
+This package contains the %{service} API service.
 
 
 %package        evaluator
 
-Summary:        OpenStack aodh evaluator
+Summary:        OpenStack %{service} evaluator
 
 Requires:       %{name}-common = %{version}-%{release}
 
 %description evaluator
-OpenStack aodh provides API and services for managing alarms.
+OpenStack %{service} provides API and services for managing alarms.
 
-This package contains the aodh evaluator service.
+This package contains the %{service} evaluator service.
 
 %package        notifier
 
-Summary:        OpenStack aodh notifier
+Summary:        OpenStack %{service} notifier
 
 Requires:       %{name}-common = %{version}-%{release}
 
 %description notifier
-OpenStack aodh provides API and services for managing alarms.
+OpenStack %{service} provides API and services for managing alarms.
 
-This package contains the aodh notifier service.
+This package contains the %{service} notifier service.
 
 %package        listener
 
-Summary:        OpenStack aodh listener
+Summary:        OpenStack %{service} listener
 
 Requires:       %{name}-common = %{version}-%{release}
 
 %description listener
-OpenStack aodh provides API and services for managing alarms.
+OpenStack %{service} provides API and services for managing alarms.
 
-This package contains the aodh listener service.
+This package contains the %{service} listener service.
 
 %package        expirer
 
-Summary:        OpenStack aodh expirer
+Summary:        OpenStack %{service} expirer
 
 Requires:       %{name}-common = %{version}-%{release}
 
 %description expirer
-OpenStack aodh provides API and services for managing alarms.
+OpenStack %{service} provides API and services for managing alarms.
 
-This package contains the aodh expirer service.
+This package contains the %{service} expirer service.
 
-%package -n python-aodh-tests
+%package -n python-%{service}-tests
 Summary:        Aodh tests
 Requires:       python-aodh = %{version}-%{release}
 Requires:       python-gabbi >= 1.30.0
 
-%description -n python-aodh-tests
-OpenStack aodh provides API and services for managing alarms.
+%description -n python-%{service}-tests
+OpenStack %{service} provides API and services for managing alarms.
 
 This package contains the Aodh test files.
 
 
 %prep
-%setup -q -n %{pypi_name}-%{upstream_version}
+%setup -q -n %{service}-%{upstream_version}
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
-find aodh -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
+find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
 sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
 # FIXME (jpena): Remove buggy PO-Revision-Date lines in translation
 # See https://bugs.launchpad.net/openstack-i18n/+bug/1586041 for details
-sed -i '/^\"PO-Revision-Date: \\n\"/d' aodh/locale/*/LC_MESSAGES/*.po
+sed -i '/^\"PO-Revision-Date: \\n\"/d' %{service}/locale/*/LC_MESSAGES/*.po
 
 rm -rf {test-,}requirements.txt tools/{pip,test}-requires
 
 
 %build
 # Generate config file
-PYTHONPATH=. oslo-config-generator --config-file=aodh/cmd/aodh-config-generator.conf --output-file=aodh/aodh.conf
+PYTHONPATH=. oslo-config-generator --config-file=%{service}/cmd/%{service}-config-generator.conf --output-file=%{service}/%{service}.conf
 
 %{__python2} setup.py build
 # Generate i18n files
-%{__python2} setup.py compile_catalog -d build/lib/%{pypi_name}/locale
+%{__python2} setup.py compile_catalog -d build/lib/%{service}/locale
 
 
 # Programmatically update defaults in sample config
@@ -240,7 +240,7 @@ PYTHONPATH=. oslo-config-generator --config-file=aodh/cmd/aodh-config-generator.
 # and also doesn't support multi-valued variables.
 while read name eq value; do
   test "$name" && test "$value" || continue
-  sed -i "0,/^# *$name=/{s!^# *$name=.*!#$name=$value!}" aodh/aodh.conf
+  sed -i "0,/^# *$name=/{s!^# *$name=.*!#$name=$value!}" %{service}/%{service}.conf
 done < %{SOURCE1}
 
 
@@ -249,20 +249,18 @@ done < %{SOURCE1}
 %{__python2} setup.py install --skip-build --root %{buildroot}
 
 # Create fake egg-info for the tempest plugin
-# TODO switch to %{service} everywhere as in openstack-example.spec
-%global service aodh
 %py2_entrypoint %{service} %{service}
 
 # Install config files
-install -d -m 755 %{buildroot}%{_sysconfdir}/aodh
-install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/aodh/aodh-dist.conf
-install -p -D -m 640 aodh/aodh.conf %{buildroot}%{_sysconfdir}/aodh/aodh.conf
-install -p -D -m 640 aodh/api/policy.json %{buildroot}%{_sysconfdir}/aodh/policy.json
+install -d -m 755 %{buildroot}%{_sysconfdir}/%{service}
+install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/%{service}/%{service}-dist.conf
+install -p -D -m 640 %{service}/%{service}.conf %{buildroot}%{_sysconfdir}/%{service}/%{service}.conf
+install -p -D -m 640 %{service}/api/policy.json %{buildroot}%{_sysconfdir}/%{service}/policy.json
 
 # Setup directories
-install -d -m 755 %{buildroot}%{_sharedstatedir}/aodh
-install -d -m 755 %{buildroot}%{_sharedstatedir}/aodh/tmp
-install -d -m 750 %{buildroot}%{_localstatedir}/log/aodh
+install -d -m 755 %{buildroot}%{_sharedstatedir}/%{service}
+install -d -m 755 %{buildroot}%{_sharedstatedir}/%{service}/tmp
+install -d -m 750 %{buildroot}%{_localstatedir}/log/%{service}
 
 # Install logrotate
 install -p -D -m 644 %{SOURCE2} %{buildroot}%{_sysconfdir}/logrotate.d/%{name}
@@ -276,20 +274,20 @@ install -p -D -m 644 %{SOURCE14} %{buildroot}%{_unitdir}/%{name}-listener.servic
 
 # Install i18n .mo files (.po and .pot are not required)
 install -d -m 755 %{buildroot}%{_datadir}
-rm -f %{buildroot}%{python2_sitelib}/%{pypi_name}/locale/*/LC_*/%{pypi_name}*po
-rm -f %{buildroot}%{python2_sitelib}/%{pypi_name}/locale/*pot
-mv %{buildroot}%{python2_sitelib}/%{pypi_name}/locale %{buildroot}%{_datadir}/locale
+rm -f %{buildroot}%{python2_sitelib}/%{service}/locale/*/LC_*/%{service}*po
+rm -f %{buildroot}%{python2_sitelib}/%{service}/locale/*pot
+mv %{buildroot}%{python2_sitelib}/%{service}/locale %{buildroot}%{_datadir}/locale
 
 # Find language files
-%find_lang %{pypi_name} --all-name
+%find_lang %{service} --all-name
 
 # Remove unused files
 rm -fr %{buildroot}/usr/etc
 
 %pre common
-getent group aodh >/dev/null || groupadd -r aodh
-if ! getent passwd aodh >/dev/null; then
-  useradd -r -g aodh -G aodh -d %{_sharedstatedir}/aodh -s /sbin/nologin -c "OpenStack aodh Daemons" aodh
+getent group %{service} >/dev/null || groupadd -r %{service}
+if ! getent passwd %{service} >/dev/null; then
+  useradd -r -g %{service} -G %{service} -d %{_sharedstatedir}/%{service} -s /sbin/nologin -c "OpenStack %{service} Daemons" %{service}
 fi
 exit 0
 
@@ -326,51 +324,51 @@ exit 0
 %files compat
 # empty files`
 
-%files -n python-aodh
-%{python2_sitelib}/aodh
-%{python2_sitelib}/aodh-*.egg-info
+%files -n python-%{service}
+%{python2_sitelib}/%{service}
+%{python2_sitelib}/%{service}-*.egg-info
 %license LICENSE
-%exclude %{python2_sitelib}/aodh/tests
+%exclude %{python2_sitelib}/%{service}/tests
 
-%files -n python-aodh-tests
+%files -n python-%{service}-tests
 %license LICENSE
-%{python2_sitelib}/aodh/tests
+%{python2_sitelib}/%{service}/tests
 %{python2_sitelib}/%{service}_tests.egg-info
 
-%files common -f %{pypi_name}.lang
+%files common -f %{service}.lang
 %doc README.rst
-%dir %{_sysconfdir}/aodh
-%attr(-, root, aodh) %{_datadir}/aodh/aodh-dist.conf
-%config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/aodh.conf
-%config(noreplace) %attr(-, root, aodh) %{_sysconfdir}/aodh/policy.json
+%dir %{_sysconfdir}/%{service}
+%attr(-, root, %{service}) %{_datadir}/%{service}/%{service}-dist.conf
+%config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/%{service}.conf
+%config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/policy.json
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
-%dir %attr(0750, aodh, root)  %{_localstatedir}/log/aodh
-%{_bindir}/aodh-dbsync
-%{_bindir}/aodh-config-generator
+%dir %attr(0750, %{service}, root)  %{_localstatedir}/log/%{service}
+%{_bindir}/%{service}-dbsync
+%{_bindir}/%{service}-config-generator
 
-%defattr(-, aodh, aodh, -)
-%dir %{_sharedstatedir}/aodh
-%dir %{_sharedstatedir}/aodh/tmp
+%defattr(-, %{service}, %{service}, -)
+%dir %{_sharedstatedir}/%{service}
+%dir %{_sharedstatedir}/%{service}/tmp
 
 %files api
-%{_bindir}/aodh-api
+%{_bindir}/%{service}-api
 %{_unitdir}/%{name}-api.service
 
 %files evaluator
-%{_bindir}/aodh-evaluator
+%{_bindir}/%{service}-evaluator
 %{_unitdir}/%{name}-evaluator.service
 
 %files notifier
-%{_bindir}/aodh-notifier
+%{_bindir}/%{service}-notifier
 %{_unitdir}/%{name}-notifier.service
 
 %files listener
-%{_bindir}/aodh-listener
+%{_bindir}/%{service}-listener
 %{_unitdir}/%{name}-listener.service
 
 
 %files expirer
-%{_bindir}/aodh-expirer
+%{_bindir}/%{service}-expirer
 %{_unitdir}/%{name}-expirer.service
 
 
