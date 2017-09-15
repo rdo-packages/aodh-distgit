@@ -132,9 +132,7 @@ Requires:       python-aodh = %{version}-%{release}
 
 Requires:       python-oslo-utils >= 3.5.0
 
-Requires(post):   systemd-units
-Requires(preun):  systemd-units
-Requires(postun): systemd-units
+%{?systemd_requires}
 Requires(pre):    shadow-utils
 
 
