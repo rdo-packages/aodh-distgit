@@ -127,6 +127,7 @@ BuildRequires:    python-pecan >= 1.0.0
 BuildRequires:    python-tooz
 BuildRequires:    python-wsme >= 0.7
 BuildRequires:    python-gnocchiclient >= 2.1.0
+BuildRequires:    openstack-macros
 
 Requires:       python-aodh = %{version}-%{release}
 
@@ -219,7 +220,7 @@ sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
 # See https://bugs.launchpad.net/openstack-i18n/+bug/1586041 for details
 sed -i '/^\"PO-Revision-Date: \\n\"/d' %{service}/locale/*/LC_MESSAGES/*.po
 
-rm -rf {test-,}requirements.txt tools/{pip,test}-requires
+%py_req_cleanup
 
 
 %build
