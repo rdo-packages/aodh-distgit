@@ -2,6 +2,8 @@
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
+%global common_desc OpenStack %{service} provides API and services for managing alarms.
+
 Name:             openstack-%{service}
 Version:          XXX
 Release:          XXX
@@ -97,7 +99,7 @@ Requires:         python-keystoneauth1 >= 2.1
 Requires:         python-debtcollector
 
 %description -n   python-%{service}
-OpenStack %{service} provides API and services for managing alarms.
+%{common_desc}
 
 This package contains the %{service} python library.
 
@@ -138,7 +140,7 @@ Requires(pre):    shadow-utils
 
 
 %description    common
-OpenStack %{service} provides API and services for managing alarms.
+%{common_desc}
 
 
 %package        api
@@ -160,7 +162,7 @@ Summary:        OpenStack %{service} evaluator
 Requires:       %{name}-common = %{version}-%{release}
 
 %description evaluator
-OpenStack %{service} provides API and services for managing alarms.
+%{common_desc}
 
 This package contains the %{service} evaluator service.
 
@@ -171,7 +173,7 @@ Summary:        OpenStack %{service} notifier
 Requires:       %{name}-common = %{version}-%{release}
 
 %description notifier
-OpenStack %{service} provides API and services for managing alarms.
+%{common_desc}
 
 This package contains the %{service} notifier service.
 
@@ -182,7 +184,7 @@ Summary:        OpenStack %{service} listener
 Requires:       %{name}-common = %{version}-%{release}
 
 %description listener
-OpenStack %{service} provides API and services for managing alarms.
+%{common_desc}
 
 This package contains the %{service} listener service.
 
@@ -193,7 +195,7 @@ Summary:        OpenStack %{service} expirer
 Requires:       %{name}-common = %{version}-%{release}
 
 %description expirer
-OpenStack %{service} provides API and services for managing alarms.
+%{common_desc}
 
 This package contains the %{service} expirer service.
 
@@ -203,7 +205,7 @@ Requires:       python-aodh = %{version}-%{release}
 Requires:       python-gabbi >= 1.30.0
 
 %description -n python-%{service}-tests
-OpenStack %{service} provides API and services for managing alarms.
+%{common_desc}
 
 This package contains the Aodh test files.
 
