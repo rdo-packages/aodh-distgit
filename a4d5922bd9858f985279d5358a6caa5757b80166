@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa81d914_1ed0dd52",
+        "filename": "openstack-aodh.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 424
+      },
+      "writtenOn": "2017-09-29T09:37:53Z",
+      "side": 1,
+      "message": "would you mind fixing this, missing space?",
+      "revId": "a4d5922bd9858f985279d5358a6caa5757b80166",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
