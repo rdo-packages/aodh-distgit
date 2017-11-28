@@ -92,7 +92,6 @@ Requires:         python-tooz >= 1.28.0
 Requires:         python-webob
 Requires:         python-wsme >= 0.8
 Requires:         python-paste-deploy
-Requires:         python-ceilometerclient >= 1.5.0
 Requires:         python-gnocchiclient >= 2.1.0
 Requires:         python-keystoneclient >= 1.6.0
 Requires:         python-keystoneauth1 >= 2.1
@@ -115,7 +114,6 @@ BuildRequires:    python-oslo-policy
 BuildRequires:    python-oslo-reports
 BuildRequires:    python-oslo-service
 BuildRequires:    python-oslo-vmware >= 0.6.0
-BuildRequires:    python-ceilometerclient
 BuildRequires:    python-glanceclient >= 1:2.0.0
 BuildRequires:    python-keystonemiddleware
 BuildRequires:    python-neutronclient
