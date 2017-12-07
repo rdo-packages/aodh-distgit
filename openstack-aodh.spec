@@ -212,6 +212,8 @@ This package contains the %{service} test files.
 
 %prep
 %setup -q -n %{service}-%{upstream_version}
+# Remove tempest plugin entrypoint as a workaround
+sed -i '/tempest/d' setup.cfg
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
@@ -248,9 +250,6 @@ done < %{SOURCE1}
 
 %install
 %{__python2} setup.py install --skip-build --root %{buildroot}
-
-# Create fake egg-info for the tempest plugin
-%py2_entrypoint %{service} %{service}
 
 # Install config files
 install -d -m 755 %{buildroot}%{_sysconfdir}/%{service}
@@ -333,7 +332,6 @@ exit 0
 %files -n python-%{service}-tests
 %license LICENSE
 %{python2_sitelib}/%{service}/tests
-%{python2_sitelib}/%{service}_tests.egg-info
 
 %files common -f %{service}.lang
 %doc README.rst
