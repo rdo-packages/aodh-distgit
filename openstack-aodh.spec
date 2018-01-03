@@ -212,8 +212,6 @@ This package contains the %{service} test files.
 
 %prep
 %setup -q -n %{service}-%{upstream_version}
-# Remove tempest plugin entrypoint as a workaround
-sed -i '/tempest/d' setup.cfg
 
 find . \( -name .gitignore -o -name .placeholder \) -delete
 
