@@ -3,7 +3,7 @@
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 Name:             openstack-aodh
-Version:          5.0.0
+Version:          5.1.0
 Release:          1%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
@@ -375,6 +375,9 @@ exit 0
 
 
 %changelog
+* Tue Feb 06 2018 RDO <dev@lists.rdoproject.org> 5.1.0-1
+- Update to 5.1.0
+
 * Thu Aug 24 2017 Alfredo Moralejo <amoralej@redhat.com> 5.0.0-1
 - Update to 5.0.0
 
