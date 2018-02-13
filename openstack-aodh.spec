@@ -26,11 +26,11 @@ BuildRequires:    openstack-macros
 BuildRequires:    python-setuptools
 BuildRequires:    python2-devel
 BuildRequires:    systemd
-BuildRequires:    python-pbr
-BuildRequires:    python-sphinx
-BuildRequires:    python-cotyledon
+BuildRequires:    python2-pbr
+BuildRequires:    python2-sphinx
+BuildRequires:    python2-cotyledon
 # Required to compile translation files
-BuildRequires:    python-babel
+BuildRequires:    python2-babel
 
 
 %description
@@ -61,41 +61,41 @@ Summary:          OpenStack %{service} python libraries
 
 Requires:         pysnmp
 Requires:         pytz
-Requires:         python-croniter
+Requires:         python2-croniter
 
-Requires:         python-jsonschema
+Requires:         python2-jsonschema
 Requires:         python-lxml
 
-Requires:         python-alembic >= 0.7.2
+Requires:         python2-alembic >= 0.7.2
 Requires:         python-cachetools >= 1.1.6
-Requires:         python-cotyledon
-Requires:         python-futures >= 3.0
-Requires:         python-futurist >= 0.11.0
-Requires:         python-oslo-config >= 2:2.6.0
-Requires:         python-oslo-db >= 4.16.0
-Requires:         python-oslo-i18n >= 1.5.0
-Requires:         python-oslo-log >= 1.2.0
-Requires:         python-oslo-policy >= 0.5.0
-Requires:         python-oslo-messaging >= 5.2.0
-Requires:         python-oslo-middleware >= 3.22.0
-Requires:         python-oslo-serialization >= 1.4.0
-Requires:         python-oslo-service >= 0.1.0
-Requires:         python-keystonemiddleware >= 2.2.0
-Requires:         python-pbr
-Requires:         python-pecan >= 0.8.0
-Requires:         python-six >= 1.9.0
-Requires:         python-stevedore >= 1.5.0
-Requires:         python-sqlalchemy
-Requires:         python-requests >= 2.5.2
-Requires:         python-tenacity >= 3.2.1
-Requires:         python-tooz >= 1.28.0
+Requires:         python2-cotyledon
+Requires:         python2-futures >= 3.0
+Requires:         python2-futurist >= 0.11.0
+Requires:         python2-oslo-config >= 2:2.6.0
+Requires:         python2-oslo-db >= 4.16.0
+Requires:         python2-oslo-i18n >= 1.5.0
+Requires:         python2-oslo-log >= 1.2.0
+Requires:         python2-oslo-policy >= 0.5.0
+Requires:         python2-oslo-messaging >= 5.2.0
+Requires:         python2-oslo-middleware >= 3.22.0
+Requires:         python2-oslo-serialization >= 1.4.0
+Requires:         python2-oslo-service >= 0.1.0
+Requires:         python2-keystonemiddleware >= 2.2.0
+Requires:         python2-pbr
+Requires:         python2-pecan >= 0.8.0
+Requires:         python2-six >= 1.9.0
+Requires:         python2-stevedore >= 1.5.0
+Requires:         python2-sqlalchemy
+Requires:         python2-requests >= 2.5.2
+Requires:         python2-tenacity >= 3.2.1
+Requires:         python2-tooz >= 1.28.0
 Requires:         python-webob
-Requires:         python-wsme >= 0.8
+Requires:         python2-wsme >= 0.8
 Requires:         python-paste-deploy
-Requires:         python-gnocchiclient >= 2.1.0
-Requires:         python-keystoneclient >= 1.6.0
-Requires:         python-keystoneauth1 >= 2.1
-Requires:         python-debtcollector
+Requires:         python2-gnocchiclient >= 3.1.0
+Requires:         python2-keystoneclient >= 1.6.0
+Requires:         python2-keystoneauth1 >= 2.1
+Requires:         python2-debtcollector
 
 %description -n   python-%{service}
 %{common_desc}
@@ -106,32 +106,31 @@ This package contains the %{service} python library.
 Summary:        Components common to all OpenStack %{service} services
 
 # Config file generation
-BuildRequires:    python-oslo-config >= 2:2.6.0
-BuildRequires:    python-oslo-db
-BuildRequires:    python-oslo-log
-BuildRequires:    python-oslo-messaging
-BuildRequires:    python-oslo-policy
-BuildRequires:    python-oslo-reports
-BuildRequires:    python-oslo-service
-BuildRequires:    python-oslo-vmware >= 0.6.0
-BuildRequires:    python-glanceclient >= 1:2.0.0
-BuildRequires:    python-keystonemiddleware
-BuildRequires:    python-neutronclient
-BuildRequires:    python-novaclient  >= 1:2.29.0
-BuildRequires:    python-swiftclient
-BuildRequires:    python-croniter
+BuildRequires:    python2-oslo-config >= 2:2.6.0
+BuildRequires:    python2-oslo-db
+BuildRequires:    python2-oslo-log
+BuildRequires:    python2-oslo-messaging
+BuildRequires:    python2-oslo-policy
+BuildRequires:    python2-oslo-reports
+BuildRequires:    python2-oslo-service
+BuildRequires:    python2-oslo-vmware >= 0.6.0
+BuildRequires:    python2-glanceclient >= 1:2.0.0
+BuildRequires:    python2-keystonemiddleware
+BuildRequires:    python2-neutronclient
+BuildRequires:    python2-novaclient  >= 1:2.29.0
+BuildRequires:    python2-swiftclient
+BuildRequires:    python2-croniter
 BuildRequires:    python-jsonpath-rw
 BuildRequires:    python-jsonpath-rw-ext
 BuildRequires:    python-lxml
-BuildRequires:    python-pecan >= 1.0.0
-BuildRequires:    python-tooz
-BuildRequires:    python-wsme >= 0.7
-BuildRequires:    python-gnocchiclient >= 2.1.0
-BuildRequires:    openstack-macros
+BuildRequires:    python2-pecan >= 1.0.0
+BuildRequires:    python2-tooz
+BuildRequires:    python2-wsme >= 0.7
+BuildRequires:    python2-gnocchiclient >= 3.1.0
 
 Requires:       python-aodh = %{version}-%{release}
 
-Requires:       python-oslo-utils >= 3.5.0
+Requires:       python2-oslo-utils >= 3.5.0
 
 %{?systemd_requires}
 Requires(pre):    shadow-utils
@@ -200,7 +199,7 @@ This package contains the %{service} expirer service.
 %package -n python-%{service}-tests
 Summary:        Aodh tests
 Requires:       python-aodh = %{version}-%{release}
-Requires:       python-gabbi >= 1.30.0
+Requires:       python2-gabbi >= 1.30.0
 
 %description -n python-%{service}-tests
 %{common_desc}
