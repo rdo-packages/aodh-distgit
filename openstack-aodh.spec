@@ -5,7 +5,7 @@
 %global common_desc OpenStack %{service} provides API and services for managing alarms.
 
 Name:             openstack-%{service}
-Version:          6.0.0
+Version:          6.0.1
 Release:          1%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
@@ -365,6 +365,9 @@ exit 0
 
 
 %changelog
+* Thu Jun 14 2018 RDO <dev@lists.rdoproject.org> 6.0.1-1
+- Update to 6.0.1
+
 * Thu Feb 15 2018 RDO <dev@lists.rdoproject.org> 6.0.0-1
 - Update to 6.0.0
 
