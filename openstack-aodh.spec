@@ -96,6 +96,7 @@ Requires:         python2-gnocchiclient >= 3.1.0
 Requires:         python2-keystoneclient >= 1.6.0
 Requires:         python2-keystoneauth1 >= 2.1
 Requires:         python2-debtcollector
+Requires:         python2-voluptuous >= 0.8.10
 
 %description -n   python-%{service}
 %{common_desc}
