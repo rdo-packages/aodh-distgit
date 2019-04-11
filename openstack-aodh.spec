@@ -90,6 +90,7 @@ Requires:         python%{pyver}-oslo-messaging >= 5.2.0
 Requires:         python%{pyver}-oslo-middleware >= 3.22.0
 Requires:         python%{pyver}-oslo-serialization >= 1.4.0
 Requires:         python%{pyver}-oslo-service >= 0.1.0
+Requires:         python%{pyver}-oslo-upgradecheck >= 0.1.1
 Requires:         python%{pyver}-keystonemiddleware >= 2.2.0
 Requires:         python%{pyver}-pbr
 Requires:         python%{pyver}-pecan >= 0.8.0
@@ -135,6 +136,7 @@ BuildRequires:    python%{pyver}-oslo-messaging
 BuildRequires:    python%{pyver}-oslo-policy
 BuildRequires:    python%{pyver}-oslo-reports
 BuildRequires:    python%{pyver}-oslo-service
+BuildRequires:    python%{pyver}-oslo-upgradecheck >= 0.1.1
 BuildRequires:    python%{pyver}-oslo-vmware >= 0.6.0
 BuildRequires:    python%{pyver}-glanceclient >= 1:2.0.0
 BuildRequires:    python%{pyver}-keystonemiddleware
@@ -368,6 +370,7 @@ exit 0
 %dir %attr(0750, %{service}, root)  %{_localstatedir}/log/%{service}
 %{_bindir}/%{service}-dbsync
 %{_bindir}/%{service}-config-generator
+%{_bindir}/%{service}-status
 
 %defattr(-, %{service}, %{service}, -)
 %dir %{_sharedstatedir}/%{service}
