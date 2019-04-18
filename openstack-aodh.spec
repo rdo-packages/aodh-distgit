@@ -102,9 +102,11 @@ Requires:         python%{pyver}-tenacity >= 3.2.1
 Requires:         python%{pyver}-tooz >= 1.28.0
 Requires:         python%{pyver}-webob
 Requires:         python%{pyver}-wsme >= 0.8
+Requires:         python%{pyver}-dateutil
 Requires:         python%{pyver}-gnocchiclient >= 3.1.0
 Requires:         python%{pyver}-keystoneclient >= 1.6.0
 Requires:         python%{pyver}-keystoneauth1 >= 2.1
+Requires:         python%{pyver}-octaviaclient
 Requires:         python%{pyver}-debtcollector
 Requires:         python%{pyver}-voluptuous >= 0.8.10
 
@@ -148,7 +150,9 @@ BuildRequires:    python%{pyver}-jsonpath-rw-ext
 BuildRequires:    python%{pyver}-pecan >= 1.0.0
 BuildRequires:    python%{pyver}-tooz
 BuildRequires:    python%{pyver}-wsme >= 0.7
+BuildRequires:    python%{pyver}-dateutil
 BuildRequires:    python%{pyver}-gnocchiclient >= 3.1.0
+BuildRequires:    python%{pyver}-octaviaclient
 
 # Handle python2 exception
 %if %{pyver} == 2
