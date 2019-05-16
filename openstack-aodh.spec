@@ -105,6 +105,7 @@ Requires:         python%{pyver}-wsme >= 0.8
 Requires:         python%{pyver}-dateutil
 Requires:         python%{pyver}-gnocchiclient >= 3.1.0
 Requires:         python%{pyver}-keystoneclient >= 1.6.0
+Requires:         python%{pyver}-heatclient >= 1.17.0
 Requires:         python%{pyver}-keystoneauth1 >= 2.1
 Requires:         python%{pyver}-octaviaclient
 Requires:         python%{pyver}-debtcollector
@@ -141,6 +142,7 @@ BuildRequires:    python%{pyver}-oslo-service
 BuildRequires:    python%{pyver}-oslo-upgradecheck >= 0.1.1
 BuildRequires:    python%{pyver}-oslo-vmware >= 0.6.0
 BuildRequires:    python%{pyver}-glanceclient >= 1:2.0.0
+BuildRequires:    python%{pyver}-heatclient
 BuildRequires:    python%{pyver}-keystonemiddleware
 BuildRequires:    python%{pyver}-neutronclient
 BuildRequires:    python%{pyver}-novaclient  >= 1:2.29.0
