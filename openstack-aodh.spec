@@ -404,3 +404,4 @@ exit 0
 * Fri Mar 22 2019 RDO <dev@lists.rdoproject.org> 8.0.0-0.1.0rc1
 - Update to 8.0.0.0rc1
 
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/aodh/commit/?id=167bce0da1bbb73a7327f1587fbfb0501e17aba0
