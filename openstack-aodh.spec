@@ -1,3 +1,4 @@
+%global milestone .0rc1
 # Macros for py2/py3 compatibility
 %if 0%{?fedora} || 0%{?rhel} > 7
 %global pyver %{python3_pkgversion}
@@ -17,12 +18,16 @@
 %global common_desc OpenStack %{service} provides API and services for managing alarms.
 
 Name:             openstack-%{service}
-Version:          XXX
-Release:          XXX
+Version:          9.0.0
+Release:          0.1%{?milestone}%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
 URL:              https://github.com/openstack/%{service}.git
 Source0:          https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
+
+#
+# patches_base=9.0.0.0rc1
+#
 
 Source1:          %{service}-dist.conf
 Source2:          %{service}.logrotate
@@ -405,3 +410,6 @@ exit 0
 
 
 %changelog
+* Mon Sep 30 2019 RDO <dev@lists.rdoproject.org> 9.0.0-0.1.0rc1
+- Update to 9.0.0.0rc1
+
