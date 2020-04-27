@@ -1,15 +1,3 @@
-# Macros for py2/py3 compatibility
-%if 0%{?fedora} || 0%{?rhel} > 7
-%global pyver %{python3_pkgversion}
-%else
-%global pyver 2
-%endif
-
-%global pyver_bin python%{pyver}
-%global pyver_sitelib %python%{pyver}_sitelib
-%global pyver_install %py%{pyver}_install
-%global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
 %global service aodh
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -35,14 +23,14 @@ Source14:         %{name}-listener.service
 BuildArch:        noarch
 
 BuildRequires:    openstack-macros
-BuildRequires:    python%{pyver}-setuptools
-BuildRequires:    python%{pyver}-devel
+BuildRequires:    python3-setuptools
+BuildRequires:    python3-devel
 BuildRequires:    systemd
-BuildRequires:    python%{pyver}-pbr
-BuildRequires:    python%{pyver}-sphinx
-BuildRequires:    python%{pyver}-cotyledon
+BuildRequires:    python3-pbr
+BuildRequires:    python3-sphinx
+BuildRequires:    python3-cotyledon
 # Required to compile translation files
-BuildRequires:    python%{pyver}-babel
+BuildRequires:    python3-babel
 
 
 %description
@@ -55,7 +43,7 @@ Summary:          OpenStack %{service} compat
 Provides:         openstack-ceilometer-alarm = %{version}-%{release}
 Obsoletes:        openstack-ceilometer-alarm < 1:6.0.0
 
-Requires:         python%{pyver}-aodh
+Requires:         python3-aodh
 Requires:         %{name}-common
 Requires:         %{name}-api
 Requires:         %{name}-evaluator
@@ -68,62 +56,55 @@ This package only exists to help transition openstack-ceilometer-alarm users
 to the new package split. It will be removed after one distribution release
 cycle, please do not reference it or depend on it in any way.
 
-%package -n       python%{pyver}-%{service}
+%package -n       python3-%{service}
 Summary:          OpenStack %{service} python libraries
-%{?python_provide:%python_provide python%{pyver}-%{service}}
+%{?python_provide:%python_provide python3-%{service}}
 
-Requires:         python%{pyver}-pytz
-Requires:         python%{pyver}-croniter
+Requires:         python3-pytz
+Requires:         python3-croniter
 
-Requires:         python%{pyver}-jsonschema
+Requires:         python3-jsonschema
 
-Requires:         python%{pyver}-alembic >= 0.7.2
-Requires:         python%{pyver}-cachetools >= 1.1.6
-Requires:         python%{pyver}-cotyledon
-Requires:         python%{pyver}-futurist >= 0.11.0
-Requires:         python%{pyver}-oslo-config >= 2:2.6.0
-Requires:         python%{pyver}-oslo-db >= 4.16.0
-Requires:         python%{pyver}-oslo-i18n >= 1.5.0
-Requires:         python%{pyver}-oslo-log >= 1.2.0
-Requires:         python%{pyver}-oslo-policy >= 0.5.0
-Requires:         python%{pyver}-oslo-messaging >= 5.2.0
-Requires:         python%{pyver}-oslo-middleware >= 3.22.0
-Requires:         python%{pyver}-oslo-serialization >= 1.4.0
-Requires:         python%{pyver}-oslo-service >= 0.1.0
-Requires:         python%{pyver}-oslo-upgradecheck >= 0.1.1
-Requires:         python%{pyver}-keystonemiddleware >= 2.2.0
-Requires:         python%{pyver}-pbr
-Requires:         python%{pyver}-pecan >= 0.8.0
-Requires:         python%{pyver}-six >= 1.9.0
-Requires:         python%{pyver}-stevedore >= 1.5.0
-Requires:         python%{pyver}-sqlalchemy
-Requires:         python%{pyver}-requests >= 2.5.2
-Requires:         python%{pyver}-tenacity >= 3.2.1
-Requires:         python%{pyver}-tooz >= 1.28.0
-Requires:         python%{pyver}-webob
-Requires:         python%{pyver}-wsme >= 0.8
-Requires:         python%{pyver}-dateutil
-Requires:         python%{pyver}-gnocchiclient >= 3.1.0
-Requires:         python%{pyver}-keystoneclient >= 1.6.0
-Requires:         python%{pyver}-heatclient >= 1.17.0
-Requires:         python%{pyver}-keystoneauth1 >= 2.1
-Requires:         python%{pyver}-octaviaclient
-Requires:         python%{pyver}-debtcollector
-Requires:         python%{pyver}-voluptuous >= 0.8.10
+Requires:         python3-alembic >= 0.7.2
+Requires:         python3-cachetools >= 1.1.6
+Requires:         python3-cotyledon
+Requires:         python3-futurist >= 0.11.0
+Requires:         python3-oslo-config >= 2:2.6.0
+Requires:         python3-oslo-db >= 4.8.0
+Requires:         python3-oslo-i18n >= 1.5.0
+Requires:         python3-oslo-log >= 1.2.0
+Requires:         python3-oslo-policy >= 0.5.0
+Requires:         python3-oslo-messaging >= 5.2.0
+Requires:         python3-oslo-middleware >= 3.22.0
+Requires:         python3-oslo-service >= 0.1.0
+Requires:         python3-oslo-upgradecheck >= 0.1.1
+Requires:         python3-keystonemiddleware >= 2.2.0
+Requires:         python3-pbr
+Requires:         python3-pecan >= 0.8.0
+Requires:         python3-six >= 1.9.0
+Requires:         python3-stevedore >= 1.5.0
+Requires:         python3-sqlalchemy
+Requires:         python3-requests >= 2.5.2
+Requires:         python3-tenacity >= 3.2.1
+Requires:         python3-tooz >= 1.28.0
+Requires:         python3-webob
+Requires:         python3-wsme >= 0.8
+Requires:         python3-dateutil
+Requires:         python3-gnocchiclient >= 3.1.0
+Requires:         python3-keystoneclient >= 1.6.0
+Requires:         python3-heatclient >= 1.17.0
+Requires:         python3-keystoneauth1 >= 2.1
+Requires:         python3-octaviaclient
+Requires:         python3-debtcollector
+Requires:         python3-voluptuous >= 0.8.10
+Requires:         python3-ceilometerclient >= 1.5.0
 
-%if %{pyver} == 2
-Requires:         pysnmp
-Requires:         python%{pyver}-futures >= 3.0
-Requires:         python-lxml
-Requires:         python-paste-deploy
-%else
-Requires:         python%{pyver}-pysnmp
-Requires:         python%{pyver}-lxml
-Requires:         python%{pyver}-paste-deploy
-%endif
+Requires:         python3-pysnmp
+Requires:         python3-lxml
+Requires:         python3-paste-deploy
 
 
-%description -n   python%{pyver}-%{service}
+%description -n   python3-%{service}
 %{common_desc}
 
 This package contains the %{service} python library.
@@ -132,43 +113,37 @@ This package contains the %{service} python library.
 Summary:        Components common to all OpenStack %{service} services
 
 # Config file generation
-BuildRequires:    python%{pyver}-oslo-config >= 2:2.6.0
-BuildRequires:    python%{pyver}-oslo-db
-BuildRequires:    python%{pyver}-oslo-log
-BuildRequires:    python%{pyver}-oslo-messaging
-BuildRequires:    python%{pyver}-oslo-policy
-BuildRequires:    python%{pyver}-oslo-reports
-BuildRequires:    python%{pyver}-oslo-service
-BuildRequires:    python%{pyver}-oslo-upgradecheck >= 0.1.1
-BuildRequires:    python%{pyver}-oslo-vmware >= 0.6.0
-BuildRequires:    python%{pyver}-glanceclient >= 1:2.0.0
-BuildRequires:    python%{pyver}-heatclient
-BuildRequires:    python%{pyver}-keystonemiddleware
-BuildRequires:    python%{pyver}-neutronclient
-BuildRequires:    python%{pyver}-novaclient  >= 1:2.29.0
-BuildRequires:    python%{pyver}-swiftclient
-BuildRequires:    python%{pyver}-croniter
-BuildRequires:    python%{pyver}-jsonpath-rw-ext
-BuildRequires:    python%{pyver}-pecan >= 1.0.0
-BuildRequires:    python%{pyver}-tooz
-BuildRequires:    python%{pyver}-wsme >= 0.7
-BuildRequires:    python%{pyver}-dateutil
-BuildRequires:    python%{pyver}-gnocchiclient >= 3.1.0
-BuildRequires:    python%{pyver}-octaviaclient
+BuildRequires:    python3-oslo-config >= 2:2.6.0
+BuildRequires:    python3-oslo-db
+BuildRequires:    python3-oslo-log
+BuildRequires:    python3-oslo-messaging
+BuildRequires:    python3-oslo-policy
+BuildRequires:    python3-oslo-reports
+BuildRequires:    python3-oslo-service
+BuildRequires:    python3-oslo-upgradecheck >= 0.1.1
+BuildRequires:    python3-oslo-vmware >= 0.6.0
+BuildRequires:    python3-glanceclient >= 1:2.0.0
+BuildRequires:    python3-heatclient
+BuildRequires:    python3-keystonemiddleware
+BuildRequires:    python3-neutronclient
+BuildRequires:    python3-novaclient  >= 1:2.29.0
+BuildRequires:    python3-swiftclient
+BuildRequires:    python3-croniter
+BuildRequires:    python3-jsonpath-rw-ext
+BuildRequires:    python3-pecan >= 1.0.0
+BuildRequires:    python3-tooz
+BuildRequires:    python3-wsme >= 0.7
+BuildRequires:    python3-dateutil
+BuildRequires:    python3-gnocchiclient >= 3.1.0
+BuildRequires:    python3-octaviaclient
 
-# Handle python2 exception
-%if %{pyver} == 2
-BuildRequires:    python-jsonpath-rw
-BuildRequires:    python-lxml
-%else
-BuildRequires:    python%{pyver}-jsonpath-rw
-BuildRequires:    python%{pyver}-lxml
-%endif
+BuildRequires:    python3-jsonpath-rw
+BuildRequires:    python3-lxml
 
 
-Requires:       python%{pyver}-aodh = %{version}-%{release}
+Requires:       python3-aodh = %{version}-%{release}
 
-Requires:       python%{pyver}-oslo-utils >= 3.5.0
+Requires:       python3-oslo-utils >= 3.5.0
 
 %{?systemd_requires}
 Requires(pre):    shadow-utils
@@ -234,13 +209,13 @@ Requires:       %{name}-common = %{version}-%{release}
 
 This package contains the %{service} expirer service.
 
-%package -n python%{pyver}-%{service}-tests
+%package -n python3-%{service}-tests
 Summary:        Aodh tests
-%{?python_provide:%python_provide python%{pyver}-%{service}-tests}
-Requires:       python%{pyver}-aodh = %{version}-%{release}
-Requires:       python%{pyver}-gabbi >= 1.30.0
+%{?python_provide:%python_provide python3-%{service}-tests}
+Requires:       python3-aodh = %{version}-%{release}
+Requires:       python3-gabbi >= 1.30.0
 
-%description -n python%{pyver}-%{service}-tests
+%description -n python3-%{service}-tests
 %{common_desc}
 
 This package contains the %{service} test files.
@@ -263,11 +238,11 @@ sed -i '/^\"PO-Revision-Date: \\n\"/d' %{service}/locale/*/LC_MESSAGES/*.po
 
 %build
 # Generate config file
-PYTHONPATH=. oslo-config-generator-%{pyver} --config-file=%{service}/cmd/%{service}-config-generator.conf --output-file=%{service}/%{service}.conf
+PYTHONPATH=. oslo-config-generator-3 --config-file=%{service}/cmd/%{service}-config-generator.conf --output-file=%{service}/%{service}.conf
 
-%{pyver_build}
+%{py3_build}
 # Generate i18n files
-%{pyver_bin} setup.py compile_catalog -d build/lib/%{service}/locale
+%{__python3} setup.py compile_catalog -d build/lib/%{service}/locale
 
 
 # Programmatically update defaults in sample config
@@ -283,7 +258,7 @@ done < %{SOURCE1}
 
 
 %install
-%{pyver_install}
+%{py3_install}
 
 # Install config files
 install -d -m 755 %{buildroot}%{_sysconfdir}/%{service}
@@ -307,9 +282,9 @@ install -p -D -m 644 %{SOURCE14} %{buildroot}%{_unitdir}/%{name}-listener.servic
 
 # Install i18n .mo files (.po and .pot are not required)
 install -d -m 755 %{buildroot}%{_datadir}
-rm -f %{buildroot}%{pyver_sitelib}/%{service}/locale/*/LC_*/%{service}*po
-rm -f %{buildroot}%{pyver_sitelib}/%{service}/locale/*pot
-mv %{buildroot}%{pyver_sitelib}/%{service}/locale %{buildroot}%{_datadir}/locale
+rm -f %{buildroot}%{python3_sitelib}/%{service}/locale/*/LC_*/%{service}*po
+rm -f %{buildroot}%{python3_sitelib}/%{service}/locale/*pot
+mv %{buildroot}%{python3_sitelib}/%{service}/locale %{buildroot}%{_datadir}/locale
 
 # Find language files
 %find_lang %{service} --all-name
@@ -357,15 +332,15 @@ exit 0
 %files compat
 # empty files`
 
-%files -n python%{pyver}-%{service}
-%{pyver_sitelib}/%{service}
-%{pyver_sitelib}/%{service}-*.egg-info
+%files -n python3-%{service}
+%{python3_sitelib}/%{service}
+%{python3_sitelib}/%{service}-*.egg-info
 %license LICENSE
-%exclude %{pyver_sitelib}/%{service}/tests
+%exclude %{python3_sitelib}/%{service}/tests
 
-%files -n python%{pyver}-%{service}-tests
+%files -n python3-%{service}-tests
 %license LICENSE
-%{pyver_sitelib}/%{service}/tests
+%{python3_sitelib}/%{service}/tests
 
 %files common -f %{service}.lang
 %doc README.rst
