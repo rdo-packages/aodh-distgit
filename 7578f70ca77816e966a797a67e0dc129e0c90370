@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "82e3f718_3085d9da",
+        "filename": "openstack-aodh.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2020-04-28T06:42:27Z",
+      "side": 1,
+      "message": "can be cleaned up",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 47
+      },
+      "revId": "7578f70ca77816e966a797a67e0dc129e0c90370",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "6c3e4f46_490bf7d8",
+        "filename": "openstack-aodh.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2020-04-28T06:42:27Z",
+      "side": 1,
+      "message": "here too",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 38
+      },
+      "revId": "7578f70ca77816e966a797a67e0dc129e0c90370",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "34e75180_18cb5575",
+        "filename": "openstack-aodh.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2020-04-28T06:42:27Z",
+      "side": 1,
+      "message": "oslo-config-generator",
+      "range": {
+        "startLine": 241,
+        "startChar": 13,
+        "endLine": 241,
+        "endChar": 36
+      },
+      "revId": "7578f70ca77816e966a797a67e0dc129e0c90370",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
