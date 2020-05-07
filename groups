@@ -1,9 +1,9 @@
 # UUID Group Name
 global:Registered-Users	Registered Users
+4c5405a3e4c5e2cd618e31d30c3e38b4ce11199e	openstack/aodh-ptl
+6ddfecad023c6f4fa3ac8c4d2583c502ea675a73	Non-Interactive Users
+0ff4adb9b3cf55b367ceb0a94504f9e019ea08b4	openstack/aodh-core
 401cf37bee35d1c809d4d957e55f2a304f8eed69	rdo-provenpackagers
 global:Anonymous-Users	Anonymous Users
-6ddfecad023c6f4fa3ac8c4d2583c502ea675a73	Non-Interactive Users
-05a678d3d4a168e149d5e8a0063bbd1b1c5526da	Administrators
-4c5405a3e4c5e2cd618e31d30c3e38b4ce11199e	openstack/aodh-ptl
 4572c517702492251ad622a289176552a8acbbb2	rdo-superusers
-0ff4adb9b3cf55b367ceb0a94504f9e019ea08b4	openstack/aodh-core
+05a678d3d4a168e149d5e8a0063bbd1b1c5526da	Administrators
