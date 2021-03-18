@@ -81,18 +81,17 @@ Requires:         python3-alembic >= 0.7.2
 Requires:         python3-cachetools >= 1.1.6
 Requires:         python3-cotyledon
 Requires:         python3-futurist >= 0.11.0
-Requires:         python3-oslo-config >= 2:2.6.0
+Requires:         python3-oslo-config >= 2:6.8.0
 Requires:         python3-oslo-db >= 4.8.0
 Requires:         python3-oslo-i18n >= 1.5.0
-Requires:         python3-oslo-log >= 1.2.0
-Requires:         python3-oslo-policy >= 0.5.0
+Requires:         python3-oslo-log >= 4.3.0
+Requires:         python3-oslo-policy >= 3.6.0
 Requires:         python3-oslo-messaging >= 5.2.0
 Requires:         python3-oslo-middleware >= 3.22.0
-Requires:         python3-oslo-upgradecheck >= 0.1.1
-Requires:         python3-keystonemiddleware >= 2.2.0
+Requires:         python3-oslo-upgradecheck >= 1.3.0
+Requires:         python3-keystonemiddleware >= 5.1.0
 Requires:         python3-pbr
 Requires:         python3-pecan >= 0.8.0
-Requires:         python3-six >= 1.9.0
 Requires:         python3-stevedore >= 1.5.0
 Requires:         python3-sqlalchemy
 Requires:         python3-requests >= 2.5.2
@@ -113,6 +112,7 @@ Requires:         python3-ceilometerclient >= 1.5.0
 Requires:         python3-pysnmp
 Requires:         python3-lxml
 Requires:         python3-paste-deploy
+Requires:         python3-oslo-context >= 2.22.0
 
 
 %description -n   python3-%{service}
@@ -124,7 +124,8 @@ This package contains the %{service} python library.
 Summary:        Components common to all OpenStack %{service} services
 
 # Config file generation
-BuildRequires:    python3-oslo-config >= 2:2.6.0
+BuildRequires:    python3-oslo-config >= 2:6.8.0
+BuildRequires:    python3-oslo-context
 BuildRequires:    python3-oslo-db
 BuildRequires:    python3-oslo-log
 BuildRequires:    python3-oslo-messaging
