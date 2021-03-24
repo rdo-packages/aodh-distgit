@@ -1,5 +1,6 @@
+%global milestone .0rc1
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0x5d2d1e4fb8d38e6af76c50d53d4fec30cf5ce3da
 %global service aodh
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -7,12 +8,16 @@
 %global common_desc OpenStack %{service} provides API and services for managing alarms.
 
 Name:             openstack-%{service}
-Version:          XXX
-Release:          XXX
+Version:          12.0.0
+Release:          0.1%{?milestone}%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
 URL:              https://github.com/openstack/%{service}.git
 Source0:          https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
+
+#
+# patches_base=12.0.0.0rc1
+#
 
 Source1:          %{service}-dist.conf
 Source2:          %{service}.logrotate
@@ -395,3 +400,6 @@ exit 0
 
 
 %changelog
+* Wed Mar 24 2021 RDO <dev@lists.rdoproject.org> 12.0.0-0.1.0rc1
+- Update to 12.0.0.0rc1
+
