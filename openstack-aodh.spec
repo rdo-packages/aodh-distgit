@@ -111,7 +111,6 @@ Requires:         python3-debtcollector
 Requires:         python3-voluptuous >= 0.8.10
 Requires:         python3-ceilometerclient >= 1.5.0
 
-Requires:         python3-pysnmp
 Requires:         python3-lxml
 Requires:         python3-paste-deploy
 Requires:         python3-oslo-context >= 2.22.0
