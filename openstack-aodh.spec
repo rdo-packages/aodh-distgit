@@ -85,7 +85,7 @@ Requires:         python3-oslo-config >= 2:6.8.0
 Requires:         python3-oslo-db >= 4.8.0
 Requires:         python3-oslo-i18n >= 1.5.0
 Requires:         python3-oslo-log >= 4.3.0
-Requires:         python3-oslo-policy >= 3.6.0
+Requires:         python3-oslo-policy >= 3.7.0
 Requires:         python3-oslo-messaging >= 5.2.0
 Requires:         python3-oslo-middleware >= 3.22.0
 Requires:         python3-oslo-upgradecheck >= 1.3.0
@@ -107,7 +107,6 @@ Requires:         python3-keystoneauth1 >= 2.1
 Requires:         python3-octaviaclient
 Requires:         python3-debtcollector
 Requires:         python3-voluptuous >= 0.8.10
-Requires:         python3-ceilometerclient >= 1.5.0
 
 Requires:         python3-lxml
 Requires:         python3-paste-deploy
