@@ -1,4 +1,3 @@
-%global milestone .0rc1
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x4c29ff0e437f3351fd82bdf47c5a3bc787dc7035
 %global service aodh
@@ -9,14 +8,12 @@
 
 Name:             openstack-%{service}
 Version:          13.0.0
-Release:          0.1%{?milestone}%{?dist}
+Release:          1%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          ASL 2.0
 URL:              https://github.com/openstack/%{service}.git
 Source0:          https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 
-#
-# patches_base=13.0.0.0rc1
 #
 
 Source1:          %{service}-dist.conf
@@ -398,6 +395,9 @@ exit 0
 
 
 %changelog
+* Wed Oct 06 2021 RDO <dev@lists.rdoproject.org> 13.0.0-1
+- Update to 13.0.0
+
 * Thu Sep 16 2021 RDO <dev@lists.rdoproject.org> 13.0.0-0.1.0rc1
 - Update to 13.0.0.0rc1
 
