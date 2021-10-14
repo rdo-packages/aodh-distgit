@@ -86,6 +86,7 @@ Requires:         python3-oslo-db >= 4.8.0
 Requires:         python3-oslo-i18n >= 1.5.0
 Requires:         python3-oslo-log >= 4.3.0
 Requires:         python3-oslo-policy >= 3.7.0
+Requires:         python3-oslo-reports >= 1.18.0
 Requires:         python3-oslo-messaging >= 5.2.0
 Requires:         python3-oslo-middleware >= 3.22.0
 Requires:         python3-oslo-upgradecheck >= 1.3.0
