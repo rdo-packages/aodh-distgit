@@ -278,6 +278,7 @@ done < %{SOURCE1}
 install -d -m 755 %{buildroot}%{_sysconfdir}/%{service}
 install -p -D -m 640 %{SOURCE1} %{buildroot}%{_datadir}/%{service}/%{service}-dist.conf
 install -p -D -m 640 %{service}/%{service}.conf %{buildroot}%{_sysconfdir}/%{service}/%{service}.conf
+install -p -D -m 640 %{service}/api/api-paste.ini %{buildroot}%{_sysconfdir}/%{service}/api-paste.ini
 
 # Setup directories
 install -d -m 755 %{buildroot}%{_sharedstatedir}/%{service}
@@ -361,6 +362,7 @@ exit 0
 %dir %{_sysconfdir}/%{service}
 %attr(-, root, %{service}) %{_datadir}/%{service}/%{service}-dist.conf
 %config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/%{service}.conf
+%config(noreplace) %attr(-, root, %{service}) %{_sysconfdir}/%{service}/api-paste.ini
 %config(noreplace) %{_sysconfdir}/logrotate.d/%{name}
 %dir %attr(0750, %{service}, root)  %{_localstatedir}/log/%{service}
 %{_bindir}/%{service}-dbsync
