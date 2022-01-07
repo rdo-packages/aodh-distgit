@@ -1,0 +1,9 @@
+Code-Review+2: Alfredo Moralejo <amoralej@redhat.com>
+Code-Review+2: Matthias Runge <mrunge@matthias-runge.de>
+Workflow+1: Alfredo Moralejo <amoralej@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Fri, 07 Jan 2022 16:17:23 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/aodh-distgit/+/36970
+Project: openstack/aodh-distgit
+Branch: refs/heads/rpm-master
