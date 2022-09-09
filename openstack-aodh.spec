@@ -101,7 +101,7 @@ Requires:         python3-tooz >= 1.28.0
 Requires:         python3-webob
 Requires:         python3-wsme >= 0.8
 Requires:         python3-dateutil
-Requires:         python3-gnocchiclient >= 3.1.0
+Requires:         python3-gnocchiclient >= 6.0.0
 Requires:         python3-keystoneclient >= 1.6.0
 Requires:         python3-heatclient >= 1.17.0
 Requires:         python3-keystoneauth1 >= 2.1
@@ -144,7 +144,7 @@ BuildRequires:    python3-pecan >= 1.0.0
 BuildRequires:    python3-tooz
 BuildRequires:    python3-wsme >= 0.7
 BuildRequires:    python3-dateutil
-BuildRequires:    python3-gnocchiclient >= 3.1.0
+BuildRequires:    python3-gnocchiclient >= 6.0.0
 BuildRequires:    python3-octaviaclient
 
 BuildRequires:    python3-jsonpath-rw
