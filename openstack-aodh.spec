@@ -94,7 +94,7 @@ Requires:         python3-keystonemiddleware >= 5.1.0
 Requires:         python3-pbr
 Requires:         python3-pecan >= 0.8.0
 Requires:         python3-stevedore >= 1.5.0
-Requires:         python3-sqlalchemy
+Requires:         python3-sqlalchemy < 1.4.0
 Requires:         python3-requests >= 2.5.2
 Requires:         python3-tenacity >= 3.2.1
 Requires:         python3-tooz >= 1.28.0
