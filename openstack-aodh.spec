@@ -72,11 +72,9 @@ cycle, please do not reference it or depend on it in any way.
 Summary:          OpenStack %{service} python libraries
 %{?python_provide:%python_provide python3-%{service}}
 
-Requires:         python3-pytz
-Requires:         python3-croniter
-
-Requires:         python3-jsonschema
-
+Requires:         python3-pytz >= 2013.6
+Requires:         python3-croniter >= 0.3.4
+Requires:         python3-jsonschema >= 3.2.0
 Requires:         python3-alembic >= 0.7.2
 Requires:         python3-cachetools >= 1.1.6
 Requires:         python3-cotyledon
@@ -91,26 +89,26 @@ Requires:         python3-oslo-messaging >= 5.2.0
 Requires:         python3-oslo-middleware >= 3.22.0
 Requires:         python3-oslo-upgradecheck >= 1.3.0
 Requires:         python3-keystonemiddleware >= 5.1.0
-Requires:         python3-pbr
+Requires:         python3-pbr >= 2.0.0
 Requires:         python3-pecan >= 0.8.0
 Requires:         python3-stevedore >= 1.5.0
-Requires:         python3-sqlalchemy
+Requires:         python3-sqlalchemy >= 1.4.1
 Requires:         python3-requests >= 2.5.2
 Requires:         python3-tenacity >= 3.2.1
 Requires:         python3-tooz >= 1.28.0
-Requires:         python3-webob
+Requires:         python3-webob >= 1.2.3
 Requires:         python3-wsme >= 0.8
 Requires:         python3-dateutil
 Requires:         python3-gnocchiclient >= 6.0.0
 Requires:         python3-keystoneclient >= 1.6.0
 Requires:         python3-heatclient >= 1.17.0
 Requires:         python3-keystoneauth1 >= 2.1
-Requires:         python3-octaviaclient
-Requires:         python3-debtcollector
+Requires:         python3-octaviaclient >= 1.8.0
+Requires:         python3-debtcollector >= 1.2.0
 Requires:         python3-voluptuous >= 0.8.10
 
-Requires:         python3-lxml
-Requires:         python3-paste-deploy
+Requires:         python3-lxml >= 2.3
+Requires:         python3-paste-deploy >= 1.5.0
 Requires:         python3-oslo-context >= 2.22.0
 
 
