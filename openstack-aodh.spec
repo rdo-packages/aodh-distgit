@@ -3,6 +3,8 @@
 %global service aodh
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# we are excluding some BRs from automatic generator
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order sphinx openstackdocstheme
 
 %global common_desc OpenStack %{service} provides API and services for managing alarms.
 
@@ -10,7 +12,7 @@ Name:             openstack-%{service}
 Version:          XXX
 Release:          XXX
 Summary:          OpenStack Telemetry Alarming
-License:          ASL 2.0
+License:          Apache-2.0
 URL:              https://github.com/openstack/%{service}.git
 Source0:          https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 
@@ -35,15 +37,9 @@ BuildRequires:  /usr/bin/gpgv2
 %endif
 
 BuildRequires:    openstack-macros
-BuildRequires:    python3-setuptools
 BuildRequires:    python3-devel
+BuildRequires:    pyproject-rpm-macros
 BuildRequires:    systemd
-BuildRequires:    python3-pbr
-BuildRequires:    python3-sphinx
-BuildRequires:    python3-cotyledon
-# Required to compile translation files
-BuildRequires:    python3-babel
-
 
 %description
 Aodh is the alarm engine of the Ceilometer project.
@@ -55,13 +51,12 @@ Summary:          OpenStack %{service} compat
 Provides:         openstack-ceilometer-alarm = %{version}-%{release}
 Obsoletes:        openstack-ceilometer-alarm < 1:6.0.0
 
-Requires:         python3-aodh
-Requires:         %{name}-common
-Requires:         %{name}-api
-Requires:         %{name}-evaluator
-Requires:         %{name}-notifier
-Requires:         %{name}-expirer
-Requires:         %{name}-listener
+Requires:         %{name}-common = %{version}-%{release}
+Requires:         %{name}-api = %{version}-%{release}
+Requires:         %{name}-evaluator = %{version}-%{release}
+Requires:         %{name}-notifier = %{version}-%{release}
+Requires:         %{name}-expirer = %{version}-%{release}
+Requires:         %{name}-listener = %{version}-%{release}
 
 %description      compat
 This package only exists to help transition openstack-ceilometer-alarm users
@@ -70,47 +65,6 @@ cycle, please do not reference it or depend on it in any way.
 
 %package -n       python3-%{service}
 Summary:          OpenStack %{service} python libraries
-%{?python_provide:%python_provide python3-%{service}}
-
-Requires:         python3-pytz >= 2013.6
-Requires:         python3-croniter >= 0.3.4
-Requires:         python3-jsonschema >= 3.2.0
-Requires:         python3-alembic >= 0.7.2
-Requires:         python3-cachetools >= 1.1.6
-Requires:         python3-cotyledon
-Requires:         python3-futurist >= 0.11.0
-Requires:         python3-oslo-config >= 2:6.8.0
-Requires:         python3-oslo-db >= 4.8.0
-Requires:         python3-oslo-i18n >= 1.5.0
-Requires:         python3-oslo-log >= 4.3.0
-Requires:         python3-oslo-policy >= 3.7.0
-Requires:         python3-oslo-reports >= 1.18.0
-Requires:         python3-oslo-messaging >= 5.2.0
-Requires:         python3-oslo-middleware >= 3.22.0
-Requires:         python3-oslo-upgradecheck >= 1.3.0
-Requires:         python3-keystonemiddleware >= 5.1.0
-Requires:         python3-pbr >= 2.0.0
-Requires:         python3-pecan >= 0.8.0
-Requires:         python3-stevedore >= 1.5.0
-Requires:         python3-sqlalchemy >= 1.4.1
-Requires:         python3-requests >= 2.5.2
-Requires:         python3-tenacity >= 3.2.1
-Requires:         python3-tooz >= 1.28.0
-Requires:         python3-webob >= 1.2.3
-Requires:         python3-wsme >= 0.8
-Requires:         python3-dateutil
-Requires:         python3-gnocchiclient >= 6.0.0
-Requires:         python3-keystoneclient >= 1.6.0
-Requires:         python3-heatclient >= 1.17.0
-Requires:         python3-keystoneauth1 >= 2.1
-Requires:         python3-octaviaclient >= 1.8.0
-Requires:         python3-debtcollector >= 1.2.0
-Requires:         python3-voluptuous >= 0.8.10
-
-Requires:         python3-lxml >= 2.3
-Requires:         python3-paste-deploy >= 1.5.0
-Requires:         python3-oslo-context >= 2.22.0
-
 
 %description -n   python3-%{service}
 %{common_desc}
@@ -120,38 +74,7 @@ This package contains the %{service} python library.
 %package        common
 Summary:        Components common to all OpenStack %{service} services
 
-# Config file generation
-BuildRequires:    python3-oslo-config >= 2:6.8.0
-BuildRequires:    python3-oslo-context
-BuildRequires:    python3-oslo-db
-BuildRequires:    python3-oslo-log
-BuildRequires:    python3-oslo-messaging
-BuildRequires:    python3-oslo-policy
-BuildRequires:    python3-oslo-reports
-BuildRequires:    python3-oslo-upgradecheck >= 0.1.1
-BuildRequires:    python3-oslo-vmware >= 0.6.0
-BuildRequires:    python3-glanceclient >= 1:2.0.0
-BuildRequires:    python3-heatclient
-BuildRequires:    python3-keystonemiddleware
-BuildRequires:    python3-neutronclient
-BuildRequires:    python3-novaclient  >= 1:2.29.0
-BuildRequires:    python3-swiftclient
-BuildRequires:    python3-croniter
-BuildRequires:    python3-jsonpath-rw-ext
-BuildRequires:    python3-pecan >= 1.0.0
-BuildRequires:    python3-tooz
-BuildRequires:    python3-wsme >= 0.7
-BuildRequires:    python3-dateutil
-BuildRequires:    python3-gnocchiclient >= 6.0.0
-BuildRequires:    python3-octaviaclient
-
-BuildRequires:    python3-jsonpath-rw
-BuildRequires:    python3-lxml
-
-
 Requires:       python3-aodh = %{version}-%{release}
-
-Requires:       python3-oslo-utils >= 3.5.0
 
 %{?systemd_requires}
 Requires(pre):    shadow-utils
@@ -159,7 +82,6 @@ Requires(pre):    shadow-utils
 
 %description    common
 %{common_desc}
-
 
 %package        api
 
@@ -219,7 +141,6 @@ This package contains the %{service} expirer service.
 
 %package -n python3-%{service}-tests
 Summary:        Aodh tests
-%{?python_provide:%python_provide python3-%{service}-tests}
 Requires:       python3-aodh = %{version}-%{release}
 Requires:       python3-gabbi >= 1.30.0
 
@@ -245,16 +166,28 @@ sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
 # See https://bugs.launchpad.net/openstack-i18n/+bug/1586041 for details
 sed -i '/^\"PO-Revision-Date: \\n\"/d' %{service}/locale/*/LC_MESSAGES/*.po
 
-%py_req_cleanup
+sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
+sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
+sed -i /^minversion.*/d tox.ini
+sed -i /^requires.*virtualenv.*/d tox.ini
 
+# Exclude some bad-known BRs
+for pkg in %{excluded_brs}; do
+  for reqfile in doc/requirements.txt test-requirements.txt; do
+    if [ -f $reqfile ]; then
+      sed -i /^${pkg}.*/d $reqfile
+    fi
+  done
+done
+
+%generate_buildrequires
+%pyproject_buildrequires -t -e %{default_toxenv}
 
 %build
 # Generate config file
 PYTHONPATH=. oslo-config-generator --config-file=%{service}/cmd/%{service}-config-generator.conf --output-file=%{service}/%{service}.conf
 
-%{py3_build}
-# Generate i18n files
-%{__python3} setup.py compile_catalog -d build/lib/%{service}/locale --domain aodh
+%pyproject_wheel
 
 
 # Programmatically update defaults in sample config
@@ -268,9 +201,12 @@ while read name eq value; do
 done < %{SOURCE1}
 
 
-
 %install
-%{py3_install}
+%pyproject_install
+
+# Generate i18n files
+%{__python3} setup.py compile_catalog -d %{buildroot}%{python3_sitelib}/%{service}/locale --domain aodh
+
 
 # Install config files
 install -d -m 755 %{buildroot}%{_sysconfdir}/%{service}
@@ -342,12 +278,15 @@ exit 0
 %preun -n %{name}-expirer
 %systemd_preun %{name}-expirer.service
 
+%check
+%tox -e %{default_toxenv}
+
 %files compat
 # empty files`
 
 %files -n python3-%{service}
 %{python3_sitelib}/%{service}
-%{python3_sitelib}/%{service}-*.egg-info
+%{python3_sitelib}/%{service}-*.dist-info
 %license LICENSE
 %exclude %{python3_sitelib}/%{service}/tests
 
