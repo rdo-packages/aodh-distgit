@@ -16,6 +16,23 @@
       "message": "we need to update wsme. I\u0027ll propose patch to rdoinfo",
       "revId": "012eea980ea7f5406afd9e8de25caf5ee4669679",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4c46297_a4795498",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-09-25T17:12:08Z",
+      "side": 1,
+      "message": "recheck",
+      "revId": "012eea980ea7f5406afd9e8de25caf5ee4669679",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
