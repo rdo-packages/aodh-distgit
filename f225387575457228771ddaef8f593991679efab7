@@ -1,0 +1,8 @@
+Code-Review+2: Alfredo Moralejo <amoralej@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Workflow+1: Alfredo Moralejo <amoralej@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Wed, 04 Oct 2023 13:06:16 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/aodh-distgit/+/50268
+Project: openstack/aodh-distgit
+Branch: refs/heads/bobcat-rdo
