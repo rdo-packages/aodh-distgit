@@ -343,3 +343,4 @@ stestr run
 
 
 %changelog
+# REMOVEME: error caused by commit https://opendev.org/openstack/aodh/commit/99df2a40bf1b8f933747ad2f9ef93a50597b1299
