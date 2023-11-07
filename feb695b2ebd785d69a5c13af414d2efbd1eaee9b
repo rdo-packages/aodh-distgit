@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96b67792_0f3ed9c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 80
+      },
+      "writtenOn": "2023-11-07T08:54:15Z",
+      "side": 1,
+      "message": "This is not necessary.\nThe offending build failed with \n```\nDEBUG util.py:443:  Errors during downloading metadata for repository \u0027crb\u0027:\nDEBUG util.py:443:    - Status code: 503 for https://mirrors.centos.org/metalink?repo\u003dcentos-crb-9-stream\u0026arch\u003dx86_64\u0026protocol\u003dhttps,http\u0026countme\u003d4 (IP: 8.43.85.67)\nDEBUG util.py:443:    - Status code: 503 for https://mirrors.centos.org/metalink?repo\u003dcentos-crb-9-stream\u0026arch\u003dx86_64\u0026protocol\u003dhttps,http (IP: 8.43.85.67)\nDEBUG util.py:443:  Error: Failed to download metadata for repo \u0027crb\u0027: Cannot prepare internal mirrorlist: Status code: 503 for https://mirrors.centos.org/metalink?repo\u003dcentos-crb-9-stream\u0026arch\u003dx86_64\u0026protocol\u003dhttps,http (IP: 8.43.85.67)\n```",
+      "revId": "feb695b2ebd785d69a5c13af414d2efbd1eaee9b",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
