@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86becc6a_dbd6c8fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2023-11-10T08:58:39Z",
+      "side": 1,
+      "message": "observabilitycilent was never introduced in RDO https://review.rdoproject.org/r/c/rdoinfo/+/46406 . it seems we need it now.",
+      "revId": "f3cf40e4e8fae9b64e7f77bcea3987afc96cdbf2",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
