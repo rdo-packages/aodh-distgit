@@ -7,6 +7,7 @@
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order sphinx openstackdocstheme
 
 %global common_desc OpenStack %{service} provides API and services for managing alarms.
+%global rhosp 0
 
 Name:             openstack-%{service}
 Version:          XXX
@@ -100,6 +101,11 @@ This package contains the %{service} API service.
 Summary:        OpenStack %{service} evaluator
 
 Requires:       %{name}-common = %{version}-%{release}
+
+%if 0%{rhosp} == 1
+BuildRequires:  python3-observabilityclient >= 0.1.1
+Requires:       python3-observabilityclient >= 0.1.1
+%endif
 
 %description evaluator
 %{common_desc}
