@@ -1,6 +1,7 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0xa7475c5f2122fec3f90343223fe3bf5aad1080e4
 %global service aodh
+%global rhosp 0
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
@@ -46,6 +47,10 @@ BuildRequires:    python3-cotyledon
 # Required to compile translation files
 BuildRequires:    python3-babel
 
+%if 0%{?rhosp} == 1
+BuildRequires:  python3-observabilityclient >= 0.1.1
+Requires:       python3-observabilityclient >= 0.1.1
+%endif
 
 %description
 Aodh is the alarm engine of the Ceilometer project.
