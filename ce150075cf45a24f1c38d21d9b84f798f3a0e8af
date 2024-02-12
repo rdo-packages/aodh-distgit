@@ -68,6 +68,24 @@
       "parentUuid": "14752283_67025a4e",
       "revId": "ce150075cf45a24f1c38d21d9b84f798f3a0e8af",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a5f56b3_623c4250",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2024-02-12T08:11:56Z",
+      "side": 1,
+      "message": "For the record, from the latest build in RDO Trunk:\n\n$ rpm -q --requires -p https://trunk.rdoproject.org/centos9-master/component/cloudops/current/python3-aodh-17.1.0-0.20240206114324.e47e4ac.el9.noarch.rpm|grep obser\npython3.9dist(python-observabilityclient) \u003e\u003d 0.0.4",
+      "parentUuid": "18d95073_d3ba6299",
+      "revId": "ce150075cf45a24f1c38d21d9b84f798f3a0e8af",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
