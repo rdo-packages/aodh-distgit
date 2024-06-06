@@ -3,6 +3,8 @@
 %global service aodh
 
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# we are excluding some runtime reqs from automatic generator
+%global excluded_reqs tzdata
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order sphinx openstackdocstheme
 
@@ -186,6 +188,12 @@ for pkg in %{excluded_brs}; do
       sed -i /^${pkg}.*/d $reqfile
     fi
   done
+done
+
+# Automatic BR generation
+# Exclude some bad-known runtime reqs
+for pkg in %{excluded_reqs};do
+  sed -i /^${pkg}.*/d doc/requirements.txt requirements.txt
 done
 
 %generate_buildrequires
