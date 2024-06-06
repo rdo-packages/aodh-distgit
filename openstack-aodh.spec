@@ -179,6 +179,8 @@ sed -i "/.*AODH_TEST_DEPS.*/d" tox.ini
 # requirements-override-centos C9S is providing dateutil-2.8.1 while package requires >= 2.8.2 with no justification
 sed -i 's/python-dateutil.*/python-dateutil/g' requirements.txt
 
+sed -i '/tzdata.*/d' requirements.txt
+
 # Exclude some bad-known BRs
 for pkg in %{excluded_brs}; do
   for reqfile in doc/requirements.txt test-requirements.txt; do
