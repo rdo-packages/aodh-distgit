@@ -34,6 +34,24 @@
       "parentUuid": "3764e92a_5e51b55b",
       "revId": "3fc155dd2fb879455c02cc4f063fc9b1eac297e0",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d5aae61_d7dabd06",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2024-06-07T08:32:53Z",
+      "side": 1,
+      "message": "No we implemented this mechanism for every runtime dep. Actually we remove tzdata in Cinder using this mechanism https://review.rdoproject.org/r/c/openstack/cinder-distgit/+/53241",
+      "parentUuid": "d2ea271a_4c3503fc",
+      "revId": "3fc155dd2fb879455c02cc4f063fc9b1eac297e0",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
