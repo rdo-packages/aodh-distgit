@@ -16,6 +16,24 @@
       "message": "we should use the mechanism we implemented to remove runtime req e.g [1][2]\n\n[1] https://review.rdoproject.org/r/c/openstack/metalsmith-distgit/+/49016/8/python-metalsmith.spec#5\n[2] https://review.rdoproject.org/r/c/openstack/metalsmith-distgit/+/49016/8/python-metalsmith.spec#124",
       "revId": "3fc155dd2fb879455c02cc4f063fc9b1eac297e0",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2ea271a_4c3503fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 757
+      },
+      "writtenOn": "2024-06-07T08:21:51Z",
+      "side": 1,
+      "message": "yes, but this mechanism is dedicated to files in doc/requrements.txt and test-requirements.txt. I put it in separate line suggested by https://review.rdoproject.org/r/c/openstack/aodh-distgit/+/53385/1/openstack-aodh.spec#180",
+      "parentUuid": "3764e92a_5e51b55b",
+      "revId": "3fc155dd2fb879455c02cc4f063fc9b1eac297e0",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
