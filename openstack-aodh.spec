@@ -163,7 +163,6 @@ find . \( -name .gitignore -o -name .placeholder \) -delete
 
 find %{service} -name \*.py -exec sed -i '/\/usr\/bin\/env python/{d;q}' {} +
 
-sed -i '/setup_requires/d; /install_requires/d; /dependency_links/d' setup.py
 # FIXME (jpena): Remove buggy PO-Revision-Date lines in translation
 # See https://bugs.launchpad.net/openstack-i18n/+bug/1586041 for details
 sed -i '/^\"PO-Revision-Date: \\n\"/d' %{service}/locale/*/LC_MESSAGES/*.po
@@ -174,8 +173,6 @@ sed -i /^minversion.*/d tox.ini
 sed -i /^requires.*virtualenv.*/d tox.ini
 
 # Fix tox.ini to be parsed for automatic BRs
-sed -i "s/^ *gnocchi.*/  gnocchi/g" tox.ini
-sed -i "/^ *pifpaf.*/d" tox.ini
 sed -i "/.*AODH_TEST_DEPS.*/d" tox.ini
 
 # requirements-override-centos C9S is providing dateutil-2.8.1 while package requires >= 2.8.2 with no justification
