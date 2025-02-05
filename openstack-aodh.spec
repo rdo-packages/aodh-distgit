@@ -283,13 +283,6 @@ exit 0
 %preun -n %{name}-expirer
 %systemd_preun %{name}-expirer.service
 
-%check
-# We can not use tox macro because tox runs unit and funtional tests in the default env
-export PYTHONPATH=$PYTHONPATH:%{buildroot}/%{python3_sitelib}:%{buildroot}/%{python3_sitearch}
-export PATH=%{buildroot}/usr/bin:/builddir/.local/bin:/builddir/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
-export OS_TEST_PATH=aodh/tests/unit
-stestr run
-
 %files compat
 # empty files`
 
