@@ -172,9 +172,6 @@ sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
 sed -i /^minversion.*/d tox.ini
 sed -i /^requires.*virtualenv.*/d tox.ini
 
-# Fix tox.ini to be parsed for automatic BRs
-sed -i "/.*AODH_TEST_DEPS.*/d" tox.ini
-
 # Exclude some bad-known BRs
 for pkg in %{excluded_brs}; do
   for reqfile in doc/requirements.txt test-requirements.txt; do
