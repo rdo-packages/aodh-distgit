@@ -196,9 +196,6 @@ done
 %install
 %pyproject_install
 
-# Generate i18n files
-%{__python3} setup.py compile_catalog -d %{buildroot}%{python3_sitelib}/%{service}/locale --domain aodh
-
 # Generate config file
 PYTHONPATH="%{buildroot}/%{python3_sitelib}" oslo-config-generator --config-file=%{service}/cmd/%{service}-config-generator.conf --output-file=%{service}/%{service}.conf
 
@@ -239,9 +236,6 @@ install -d -m 755 %{buildroot}%{_datadir}
 rm -f %{buildroot}%{python3_sitelib}/%{service}/locale/*/LC_*/%{service}*po
 rm -f %{buildroot}%{python3_sitelib}/%{service}/locale/*pot
 mv %{buildroot}%{python3_sitelib}/%{service}/locale %{buildroot}%{_datadir}/locale
-
-# Find language files
-%find_lang %{service} --all-name
 
 # Remove unused files
 rm -fr %{buildroot}/usr/etc
@@ -299,7 +293,7 @@ exit 0
 %license LICENSE
 %{python3_sitelib}/%{service}/tests
 
-%files common -f %{service}.lang
+%files common
 %doc README.rst
 %dir %{_sysconfdir}/%{service}
 %attr(-, root, %{service}) %{_datadir}/%{service}/%{service}-dist.conf
