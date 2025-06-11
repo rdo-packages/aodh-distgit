@@ -42,6 +42,7 @@ BuildRequires:    openstack-macros
 BuildRequires:    python3-devel
 BuildRequires:    pyproject-rpm-macros
 BuildRequires:    systemd
+BuildRequires:    python3-babel
 
 %description
 Aodh is the alarm engine of the Ceilometer project.
