@@ -339,3 +339,4 @@ exit 0
 
 
 %changelog
+# REMOVEME: error caused by commit https://opendev.org/openstack/aodh/commit/632a230dc7b9f469ae370d5916b204e2f64640e3
