@@ -11,7 +11,7 @@
 %global common_desc OpenStack %{service} provides API and services for managing alarms.
 
 Name:             openstack-%{service}
-Version:          20.0.0
+Version:          20.0.1
 Release:          1%{?dist}
 Summary:          OpenStack Telemetry Alarming
 License:          Apache-2.0
@@ -340,6 +340,9 @@ exit 0
 
 
 %changelog
+* Fri Aug 21 2026 RDO <dev@lists.rdoproject.org> 20.0.1-1
+- Update to 20.0.1
+
 * Wed Apr 02 2025 RDO <dev@lists.rdoproject.org> 20.0.0-1
 - Update to 20.0.0
 
